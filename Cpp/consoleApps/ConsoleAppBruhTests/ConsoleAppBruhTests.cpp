@@ -12,7 +12,7 @@ int main()
 	// -the random number generator-
 	int start = 1;
 	int end = 30;
-	int x = rand() % (end - start + 1) + start; // lol? Why it works like this (。_。)
+	int u = rand() % (end - start + 1) + start; // lol? Why it works like this (。_。)
 
 	// -Just a test variables-
 	int x = 42;
