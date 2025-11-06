@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <iomanip>
 #include <string>
+#include <list>
 using namespace std;
 
 int main() 
@@ -9,11 +10,14 @@ int main()
 	/// I testing for loops in C++ ^o^
 	/// enjoy it!
 
-	int userChoice, userInp;
+	int userChoice, userInp, x;
+	int result = 0;
+
+	list<int> numsList = {};
 	
 	while (true)
 	{
-		cout <<"\nWrite number u like : \n 1) friendly numbers \n 2) evil numbers \n 3)* table" << endl;
+		cout <<"\nWrite number u like : \n 1) friendly numbers \n 2) evil numbers \n 3)* table \n 4) nums game" << endl;
 		cin >> userChoice;
 
 		switch (userChoice) {
@@ -46,6 +50,27 @@ int main()
 				}
 				cout << endl;
 			}
+		case 4:
+			while (true)
+			{
+				cout << "Write num" << endl;
+				cin >> x;
+
+				if (x == 0) break;
+				result = result + x;
+
+
+				//if (x != 0) {
+				//	numsList.push_back(x);
+				//}
+				//else {
+				//	for (int i=0; i < numsList.size(); i++) {
+				//		result = numsList[i] + result;
+				//	}
+				//}
+
+			}
+			cout << "Result is: " << result << endl;
 		}
 	}
 }
