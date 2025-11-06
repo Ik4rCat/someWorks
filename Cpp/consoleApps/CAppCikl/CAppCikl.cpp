@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include <iomanip>
 #include <string>
 #include <list>
 using namespace std;
@@ -46,7 +45,7 @@ int main()
 			for (int i = 1; i <= 10; ++i) {
 				for (int j = 1; j <= 10; ++j) {
 					int result = i * j;
-					cout << i << " * " << j << " = " << setw(3) << result << "\t";
+					cout << i << " * " << j << " =  " << result << "\t";
 				}
 				cout << endl;
 			}
