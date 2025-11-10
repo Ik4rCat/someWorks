@@ -1,20 +1,41 @@
-﻿// CTRApp.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <string>
+#include <locale>
+using namespace std;
 
-#include <iostream>
+/// HI, i need to make my taskes one more time lol ^_____^
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	string userInp;
+	const int maxNum = 10;
+	int usChoice;
+	int train[maxNum];
+
+	cout << "maxNum of masiv: " << maxNum << endl;
+
+	for (int i = 0; i < maxNum; i++ ) {
+		cout << "Enter number: " << endl;
+		cin >> train[i];
+	}
+	
+	cout << "Wana see nums? \n 1 - yes \n 2 - no, exit program\n";
+	cin >> usChoice;
+	
+	switch (usChoice)
+	{
+		case 1:
+			cout << "Here you go: \n";
+			for (int q = 0; q < maxNum; q++) {
+				cout << "\n" << train[q] << endl;
+			}
+			break;
+		
+		case 2:
+			break;
+	}
+
+
+
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
