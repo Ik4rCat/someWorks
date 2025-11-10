@@ -23,8 +23,8 @@ void BubbleSort(int arr[], int n) {
 int main()
 {
 	string userInp;
-	const int maxNum = 10;
-	int usChoice, sumRes = 0;
+	const int maxNum= 10;
+	int usChoice= 0, sumRes= 0, firstnullnum = NULL, secondnullnum = NULL, sumsum= 0;
 	int train[maxNum];
 
 	cout << "maxNum of masiv: " << maxNum << endl;
@@ -33,6 +33,19 @@ int main()
 		cout << "Enter number: " << endl;
 		cin >> train[i];
 		if (train[i] < 0) sumRes += train[i];
+		if (train[i] == 0) {
+			if (firstnullnum == NULL) {
+				firstnullnum = i;
+				cout << "id: " << firstnullnum << endl;
+			}
+			else secondnullnum = i;
+
+			if (firstnullnum && secondnullnum) {
+				for (int k = firstnullnum; k < secondnullnum; k++) {
+					sumsum += train[k];
+				}
+			}
+		}
 	}
 	
 	cout << "Wana see nums? \n 1 - yes \n 2 - no, exit program\n";
@@ -42,16 +55,20 @@ int main()
 	{
 		case 1:
 			cout << "Here you go: \n";
+
 			for (int q = 0; q < maxNum; q++) {
 				cout << "\n" << train[q] << endl;
 			}
+
 			cout << "Sum of evil nums is: " << sumRes <<endl;
+
+			if (sumsum == 0) cout << "No nulls found in masiv" << endl;
+			else cout << "Sum of nums between nulls is: " << sumsum << endl;
+			
 			break;
 		
 		case 2:
 			break;
 	}
-
-
 
 }
