@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	int i, q;
+	int i, q, sum=0;
 	const int y=5, x=5; 
 	int matrix[y][x];
 
@@ -17,13 +17,23 @@ int main()
 	//	{10, 11, 12}
 	//};
 
-	cout << "matrix type: int\n" << "matrix size:\n count of lines: " << y << "\n count of elements in line: " << x << endl;
+	cout << "matrix type:" << "\n" << "matrix size : \n count of lines : " << y << "\n count of elements in line : " << x << endl;
 
 	// input
 	for (i = 0; i < y; i++) {
 		for (q = 0; q < x; q++) {
 			cout << "Enter number: " << endl;
 			cin >> matrix[i][q];
+			cout << "\n";
+		}
+	}
+
+	// sum friendly % 2 nums
+	for (i = 0; i < y; i++) {
+		for (q = 0; q < x; q++) {
+			if (matrix[i][q] % 2 == 0) {
+				sum += matrix[i][q];
+			}
 		}
 	}
 
@@ -34,5 +44,6 @@ int main()
 		}
 		cout << "\n";
 	}
+	cout << "Sum = " << sum << endl;
 
 }
