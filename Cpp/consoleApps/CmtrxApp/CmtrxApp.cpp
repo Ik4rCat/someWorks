@@ -6,9 +6,10 @@ using namespace std;
 
 int main()
 {
-	int i, q, sum=0;
-	const int y=5, x=5; 
+	int i, q, sum=0, summ=0;
+	const int y=5, x=5, z=5; 
 	int matrix[y][x];
+	int arr[z];
 
 	//int mat[4][3]{
 	//	{1, 2, 3},
@@ -17,7 +18,10 @@ int main()
 	//	{10, 11, 12}
 	//};
 
-	cout << "matrix type:" << "\n" << "matrix size : \n count of lines : " << y << "\n count of elements in line : " << x << endl;
+	cout << "matrix type:" 
+		<< typeid(matrix).name() <<
+		"\n" << "matrix size : \n count of lines : " << y 
+		<< "\n count of elements in line : " << x << endl;
 
 	// input
 	for (i = 0; i < y; i++) {
@@ -46,4 +50,16 @@ int main()
 	}
 	cout << "Sum = " << sum << endl;
 
+	for (i = 0; i < z; i++) {
+		cout << "\nEnter num: " << endl;
+		cin >> arr[i];
+	}
+	for (i = 0; i < z; i++) {
+		cout << arr[i] << ",";
+	}
+	for (i = 0; i < z; i++) {
+		summ += arr[i];
+	}
+	cout << "\n";
+	cout << summ;
 }
