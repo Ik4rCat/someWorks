@@ -7,41 +7,59 @@ using namespace std;
 /// RU: Привет! Сегодня я буду работать с векторами ^o^
 /// </summary>
 
-void Task() 
+void Task()
 {
-	
+    // Ru: функция Task пока не реализована | Eng: Task function not implemented yet
 }
 
 void Teory()
 {
-	// Ru: Немного векторов и варианты их создания | Eng: Some vectors and options for creating them
-	vector<int> v1;
-	vector<int> v2(6);
-	vector<int> v3(5, 15);
-	vector<int> v4{ 1, 2, 3, 4, 5 };
-	vector<int> v5; (v3);
+    // Ru: Немного векторов и варианты их создания | Eng: Some vectors and options for creating them
+    vector<int> v1;  // Ru: пустой вектор | Eng: empty vector
+    vector<int> v2(6);  // Ru: вектор из 6 элементов (значения по умолчанию) | Eng: vector with 6 elements (default values)
+    vector<int> v3(5, 15);  // Ru: вектор из 5 элементов, все равны 15 | Eng: vector with 5 elements, all equal to 15
+    vector<int> v4{ 1, 2, 3, 4, 5 };  // Ru: вектор с инициализацией списком | Eng: vector with list initialization
+    vector<int> v5; (v3);  // Ru: ВНИМАНИЕ: v5 создается пустым, (v3) не копирует | Eng: ATTENTION: v5 created empty, (v3) doesn't copy
 
-	// Ru: различные способы доступа к элементам вектора | Eng: different ways to access vector elements
-	cout << v3[2] << endl; // Ru: достает по индексу | Eng: reaches the index
-	cout << v3.at(1) << endl; // Ru: .at для обработки ошибок | Eng: .at for error handling
-	cout << v3.front() << endl; // Ru: достает первый элемент | Eng: gets the first element
-	cout << v3.back() << endl; // Ru: достает последний элемент | Eng: gets the last element
+    /* Ru: закомментированные операции доступа к элементам | Eng: commented element access operations
+     cout << v4[3] << endl;
+     cout << v4.at(5) << endl;
+     cout << v4.front() << endl;
+     cout << v4.back() << endl << "__________";*/
 
-	// Ru: методы для получения информации о векторе | Eng: methods to get information about the vector
-	cout << v1.empty() << endl; // Ru: проверяет пустой ли вектор | Eng: checks if vector is empty
-	cout << v1.size() << endl; // Ru: выводит длину | Eng: outputs the length
-	cout << v1.max_size() << endl; // Ru: выводит максимальный размер | Eng: outputs maximum size
-	cout << v1.capacity() << endl; // Ru: выводит сколько может занимать места | Eng: outputs capacity
+     // Ru: проверка свойств векторов | Eng: checking vector properties
+    cout << v1.empty() << endl;  // Ru: проверка пуст ли вектор | Eng: check if vector is empty
+    cout << v2.size() << endl;  // Ru: текущий размер вектора | Eng: current vector size
+    cout << v5.capacity() << endl;  // Ru: выделенная память для вектора | Eng: allocated memory for vector
 
-	// Ru: управление памятью вектора | Eng: vector memory management
-	v5.reserve(100); // Ru: резервирует память для 100 элементов | Eng: reserves memory for 100 elements
-	cout << v5.capacity() << endl;
-	v5.shrink_to_fit(); // Ru: уменьшает capacity до size | Eng: reduces capacity to match size
-	cout << v5.capacity() << endl;
+    /* Ru: закомментированные операции с памятью | Eng: commented memory operations
+     cout << v3.max_size() << endl;
+     v5.reserve(100);
+     cout << v5.capacity() << endl;
+     v5.shrink_to_fit();
+     cout << v5.capacity() << endl;*/
 
+    cout << "_________________" << endl;
+
+    // Ru: операции модификации векторов | Eng: vector modification operations
+    v1.push_back(3);  // Ru: добавление элемента в конец | Eng: add element to the end
+    v1.pop_back();  // Ru: удаление последнего элемента | Eng: remove last element
+    v3.insert(v3.begin() + 1, 99);  // Ru: вставка элемента 99 на позицию 1 | Eng: insert element 99 at position 1
+    v3.insert(v3.begin() + 3, 3, 100);  // Ru: вставка трех элементов 100 начиная с позиции 3 | Eng: insert three 100 elements starting from position 3
+    v3.erase(v3.begin() + 1);  // Ru: удаление элемента на позиции 1 | Eng: remove element at position 1
+    v5.erase(v5.begin() + 2, v5.end());  // Ru: удаление элементов с позиции 2 до конца | Eng: remove elements from position 2 to end
+    v2.clear();  // Ru: очистка всего вектора | Eng: clear entire vector
+    v2.emplace_back(245);  // Ru: создание элемента на месте в конце | Eng: construct element in-place at the end
+    v2.emplace(v2.begin(), 99);  // Ru: создание элемента на месте в начале | Eng: construct element in-place at the beginning
+    v3.resize(20, 55);  // Ru: изменение размера до 20, новые элементы = 55 | Eng: resize to 20, new elements = 55
+    v3.resize(5);  // Ru: уменьшение размера до 5 | Eng: reduce size to 5
+
+    v3.swap(v2);  // Ru: обмен содержимым двух векторов | Eng: swap contents of two vectors
 }
 
 int main()
 {
-	Task();
+    Task();  // Ru: вызов пустой функции Task | Eng: call to empty Task function
+    // Ru: ВНИМАНИЕ: функция Teory не вызывается | Eng: ATTENTION: Teory function not called
+    return 0;  // Ru: завершение программы | Eng: program termination
 }
