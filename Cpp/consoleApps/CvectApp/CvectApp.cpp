@@ -9,7 +9,57 @@ using namespace std;
 
 void Task()
 {
-    // Ru: функция Task пока не реализована | Eng: Task function not implemented yet
+    
+    vector<int> v0;
+    vector<int> v1{ 
+        1, 2, 3, 
+        4, 5, 6};
+
+    cout << v0.empty() << endl;
+    cout << v0.size() << endl;
+    cout << v0.capacity() << endl;
+    cout << "--------------" << endl;
+    cout << v1.empty() << endl;
+    cout << v1.size() << endl;
+    cout << v1.capacity() << endl;
+
+    v0.push_back(5);
+    v0.push_back(6);
+    v1.push_back(5);
+
+    v0.pop_back();
+    v1.pop_back();
+
+    v0.insert(v0.begin() + 1, 99);
+    v1.insert(v1.begin() + 1, 99);
+
+    v0.erase(v0.begin() + 1);
+    v1.erase(v1.begin() + 1);
+
+    v0.clear();
+    v0.emplace_back(245);
+    v1.emplace_back(245);
+    v0.resize(20, 55);
+    v1.resize(20, 55);
+
+    cout << v0.empty() << endl;
+    cout << v0.size() << endl;
+    cout << v0.capacity() << endl;
+    cout << "--------------" << endl;
+    cout << v1.empty() << endl;
+    cout << v1.size() << endl;
+    cout << v1.capacity() << endl;
+
+    v0.swap(v1);
+
+    cout << v0.empty() << endl;
+    cout << v0.size() << endl;
+    cout << v0.capacity() << endl;
+    cout << "--------------" << endl;
+    cout << v1.empty() << endl;
+    cout << v1.size() << endl;
+    cout << v1.capacity() << endl;
+
 }
 
 void Teory()
@@ -59,7 +109,6 @@ void Teory()
 
 int main()
 {
-    Task();  // Ru: вызов пустой функции Task | Eng: call to empty Task function
-    // Ru: ВНИМАНИЕ: функция Teory не вызывается | Eng: ATTENTION: Teory function not called
+    Task(); 
     return 0;  // Ru: завершение программы | Eng: program termination
 }
