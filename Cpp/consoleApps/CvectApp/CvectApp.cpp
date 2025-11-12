@@ -7,7 +7,12 @@ using namespace std;
 /// RU: Привет! Сегодня я буду работать с векторами ^o^
 /// </summary>
 
-int main()
+void Task() 
+{
+	
+}
+
+void Teory()
 {
 	// Ru: Немного векторов и варианты их создания | Eng: Some vectors and options for creating them
 	vector<int> v1;
@@ -34,4 +39,9 @@ int main()
 	v5.shrink_to_fit(); // Ru: уменьшает capacity до size | Eng: reduces capacity to match size
 	cout << v5.capacity() << endl;
 
+}
+
+int main()
+{
+	Task();
 }
