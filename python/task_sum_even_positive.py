@@ -1,17 +1,18 @@
 """Скрипт 3"""
 
+from random import randint
+
 count = 18
+total = 0
+numbers = []
 
-while True:
-    data = input(f"Введите {count} чисел для массива A: ").split()
-    if len(data) != count:
-        print("Нужно ровно 18 значений.")
-        continue
-    try:
-        numbers = [float(x) for x in data]
-        break
-    except ValueError:
-        print("Все элементы должны быть числами.")
+for i in range(count):
+    numbers.append(randint(-50, 50))
 
-total = sum(value for value in numbers if value > 0 and value % 2 == 0)
+
+for value in numbers:
+    if value > 0 and value % 2 == 0:
+        total += value
+
+print(f"Массив A({count}): {numbers}")
 print(f"Сумма чётных положительных элементов: {total}")

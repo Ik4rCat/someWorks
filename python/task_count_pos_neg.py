@@ -1,20 +1,21 @@
 """Скрипт 1"""
 
+from random import randint
+
 count = 22
+positives = 0
+negatives = 0
+numbers = []
 
-while True:
-    data = input(f"Введите {count} чисел для массива A: ").split()
-    if len(data) != count:
-        print("Неверное количество значений, попробуйте снова.")
-        continue
-    try:
-        numbers = [float(x) for x in data]
-        break
-    except ValueError:
-        print("Все элементы должны быть числами, попробуйте снова.")
+for i in range(count):
+    numbers.append(randint(-50, 50))
 
-positives = sum(1 for value in numbers if value > 0)
-negatives = sum(1 for value in numbers if value < 0)
+for value in numbers:
+    if value > 0:
+        positives += 1
+    elif value < 0:
+        negatives += 1
 
+print(f"Массив A({count}): {numbers}")
 print(f"Положительных элементов: {positives}")
 print(f"Отрицательных элементов: {negatives}")

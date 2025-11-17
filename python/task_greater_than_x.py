@@ -1,17 +1,15 @@
 """Скрипт 2"""
 
-count = 40
+from random import randint
 
-while True:
-    data = input(f"Введите {count} чисел для массива M: ").split()
-    if len(data) != count:
-        print("Нужно ровно 40 значений, попробуйте снова.")
-        continue
-    try:
-        numbers = [float(x) for x in data]
-        break
-    except ValueError:
-        print("Все элементы должны быть числами.")
+count = 40
+greater = 0
+numbers = []
+
+for i in range(count):
+    numbers.append(randint(-100, 100))
+
+print(f"Массив M({count}): {numbers}")
 
 while True:
     raw = input("Введите число X: ").strip()
@@ -21,5 +19,8 @@ while True:
     except ValueError:
         print("X должно быть числом.")
 
-count = sum(1 for value in numbers if value > threshold)
-print(f"Количество элементов больше {threshold}: {count}")
+for value in numbers:
+    if value > threshold:
+        greater += 1
+
+print(f"Количество элементов больше {threshold}: {greater}")
