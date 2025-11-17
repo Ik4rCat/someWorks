@@ -1,6 +1,107 @@
 ﻿#include <iostream>
 using namespace std;
 
+void TaskI() {
+
+}
+
+void TaskII() {
+
+}
+
+void TaskIII() {
+
+}
+
+void TaskIV() {
+
+}
+
+void TaskV() {
+
+}
+
+void TaskVI() {
+
+}
+
+void TaskVII() {
+
+}
+
+void TaskVIII() {
+
+}
+
+void TaskIX() {
+
+}
+
+void TaskX() {
+
+}
+
+void TaskXI() {
+
+}
+
+void TaskXII() {
+
+}
+
+void TaskXIII() {
+
+}
+
+void TaskXIV() {
+
+}
+
+void TaskXVI() {
+
+}
+
+void TaskXVII() {
+
+}
+
+void TaskXVIII() {
+
+}
+
+void TaskXIX() {
+
+}
+
+void TaskXX() {
+
+}
+
+void TaskXXI() {
+
+}
+
+void TaskXXII() {
+
+}
+
+void TaskXXIII() {
+
+}
+
+void TaskXXIV() {
+
+}
+
+void TaskXXV() {
+
+}
+
+void TaskXXVI() {
+
+}
+
+
 int main()
 {
 	int userInp = 0;
