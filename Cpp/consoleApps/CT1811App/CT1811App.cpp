@@ -1,28 +1,74 @@
 ﻿#include <iostream>
-#include <algorithm>
 #include <vector>
-#include <random>
 #include <ctime>
-#include <cmath>
 using namespace std;
+
+// Функция генераций перестановки
+bool nextPermutation(int arr[], int n) {
+	// Находим наибольший индекс, где arr[i] < arr[i+1]
+	int i = n - 2;
+	while (i >= 0 && arr[i] >= arr[i + 1]) {
+		i--;
+	}
+	
+	// Если такой индекс не найден, то перестановок больше нет
+	if (i < 0) {
+		return false;
+	}
+	
+	// Находим наибольший индекс j, где arr[i] < arr[j]
+	int j = n - 1;
+	while (arr[j] <= arr[i]) {
+		j--;
+	}
+	
+	// Меняем местами arr[i] и arr[j]
+	int temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
+	
+	// Переворачиваем последовательность после индекса i
+	int left = i + 1;
+	int right = n - 1;
+	while (left < right) {
+		temp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = temp;
+		left++;
+		right--;
+	}
+	
+	return true;
+}
 
 void TaskI() 
 {
 	int nums[15]{};
-	vector<int> v;
 
-	for (int i = 0; i < size(nums); i++) {
+	// Заполнение массива случайными числами
+	for (int i = 0; i < 15; i++) {
 		nums[i] = rand();
 	}
 
-	copy(begin(nums), end(nums), back_inserter(v));
+	// Сортировка массива (пузырьковая сортировка)
+	for (int i = 0; i < 15 - 1; i++) {
+		for (int j = 0; j < 15 - i - 1; j++) {
+			if (nums[j] > nums[j + 1]) {
+				int temp = nums[j];
+				nums[j] = nums[j + 1];
+				nums[j + 1] = temp;
+			}
+		}
+	}
 
-	sort(v.begin(), v.end());
-
+	// Вывод всех перестановок
 	do {
-		copy(v.begin(), v.end(), ostream_iterator<int>(cout, " "));
+		// Вывод текущей перестановки
+		for (int i = 0; i < 15; i++) {
+			cout << nums[i] << " ";
+		}
 		cout << endl;
-	} while (next_permutation(v.begin(), v.end()));
+	} while (nextPermutation(nums, 15));
 
 }
 
@@ -131,12 +177,6 @@ int main()
 		cout << " 2 - task II" << endl;
 		cout << " 3 - task III" << endl;
 		cout << " 4 - task IV" << endl;
-		//cout << " 5 - task V" << endl;
-		//cout << " 6 - task VI" << endl;
-		//cout << " 7 - task VII" << endl;
-		//cout << " 8 - task VIII" << endl;
-		//cout << " 9 - task IX" << endl;
-		//cout << " 10- task X" << endl;
 		cout << " 0- exit" << endl;
 
 		cin >> userChoice;
@@ -146,12 +186,6 @@ int main()
 		case 2:  TaskII(); break;
 		case 3:  TaskIII(); break;
 		case 4:  TaskIV(); break;
-		//case 5:  TaskV(); break;
-		//case 6:  TaskVI(); break;
-		//case 7:  TaskVII(); break;
-		//case 8:  TaskVIII(); break;
-		//case 9:  TaskIX(); break;
-		//case 10: TaskX(); break;
 		case 0: break;
 		default:
 			cout << "No such task. Please try again." << endl;
