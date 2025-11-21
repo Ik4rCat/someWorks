@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CoNeMoreTApp", "CoNeMoreTApp.vcxproj", "{424A3782-98F6-4B7A-A689-1F8AFFF83577}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{424A3782-98F6-4B7A-A689-1F8AFFF83577}.Debug|x64.ActiveCfg = Debug|x64
+		{424A3782-98F6-4B7A-A689-1F8AFFF83577}.Debug|x64.Build.0 = Debug|x64
+		{424A3782-98F6-4B7A-A689-1F8AFFF83577}.Debug|x86.ActiveCfg = Debug|Win32
+		{424A3782-98F6-4B7A-A689-1F8AFFF83577}.Debug|x86.Build.0 = Debug|Win32
+		{424A3782-98F6-4B7A-A689-1F8AFFF83577}.Release|x64.ActiveCfg = Release|x64
+		{424A3782-98F6-4B7A-A689-1F8AFFF83577}.Release|x64.Build.0 = Release|x64
+		{424A3782-98F6-4B7A-A689-1F8AFFF83577}.Release|x86.ActiveCfg = Release|Win32
+		{424A3782-98F6-4B7A-A689-1F8AFFF83577}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80531B82-CD96-4E89-BCDF-50EA4CF595E5}
+	EndGlobalSection
+EndGlobal
