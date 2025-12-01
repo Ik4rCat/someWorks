@@ -40,8 +40,8 @@ class WindowElement:
 # <============ChildrenClassesPart============>
 
 class Button(WindowElement):
-    def __init__(self, sizeX=50, sizeY=20, pressed=False, cornersRoundingMain=0, cornerRTopLeft=0, cornerRTopRight=0, cornerRBottomLeft=0, cornerRBottomRight=0, text="text"):
-        super().__init__(sizeX, sizeY)
+    def __init__(self, x=0, y=0, sizeX=50, sizeY=20, pressed=False, cornersRoundingMain=0, cornerRTopLeft=0, cornerRTopRight=0, cornerRBottomLeft=0, cornerRBottomRight=0, text="text"):
+        super().__init__(sizeX, sizeY, x, y)
         self.pressed= pressed
         self.cornerRoundingMain= cornersRoundingMain 
         self.cornerRTopLeft = cornerRTopLeft
@@ -51,16 +51,17 @@ class Button(WindowElement):
         self.text = text
 
 class TextBox(WindowElement):
-    def __init__(self, sizeX=100, sizeY=50, text="text", font=["comic sans"], color=["white"]):
-        super().__init__(sizeX, sizeY)
+    def __init__(self, x=0, y=0,  sizeX=100, sizeY=50, text="text", font=["comic sans"], color=["white"]):
+        super().__init__(sizeX, sizeY, x, y)
         self.text = text
         self.font = font
         self.color = color
 
 class InputBox(WindowElement):
-    def __init__(self, sizeX=100, sizeY=50, inputText="", sampleText="your text here", font=["comic sans"], color=["white"]):
-        super().__init__(sizeX, sizeY)
+    def __init__(self, sizeX=100, sizeY=50, x=0, y=0, inputText="", sampleText="your text here", font=["comic sans"], color=["white"]):
+        super().__init__(sizeX, sizeY, x, y)
         self.inputText = inputText
         self.sampleText = sampleText
         self.font = font
         self.color = color
+
