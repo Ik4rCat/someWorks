@@ -47,6 +47,40 @@ void TaskII()
 
 }
 
+// task III part start=============================>
+int pow(int n, int k){
+    for (int i = 1; i < k; i++){
+        n = n * n;
+    }
+    return n;
+}
+
+void TaskIIItr()
+{
+    int i, q, usrNum, usrStep, ik=1, sum=0;
+
+    cout << "Enter number: ";
+    cin >> usrNum;
+
+    cout << "Enter steepen: ";
+    cin >> usrStep;
+
+    for (i = 0; i < usrNum; i++){
+        sum = sum + pow(i,usrStep);
+    }
+    cout << "Sum = "<< sum;
+
+
+    // for (i = 0; i < usrNum; i++){
+    //     for(q = 0; i < usrStep; i++){
+    //         usr
+    //     }
+
+    //     sum += i
+    // }
+
+}
+// task III part end=============================>
 
 int main()
 {
@@ -55,16 +89,18 @@ int main()
     while (true)
     {
         int choice;
-        
+        cout << endl;
         cout << "\nChoice task:" << endl;
         cout << "1 - taskI" << endl;
         cout << "2 - taskII" << endl;
+        cout << "3 - taskIII" << endl;
         cout << "0 - exit" << endl;
         cin >> choice;
 
         switch(choice){
         case 1: TaskI(); break;
         case 2: TaskII(); break;
+        case 3: TaskIIItr(); break;
         case 0: return 0;
         default:
             cout << "\nerror value, try again" << endl; break;
