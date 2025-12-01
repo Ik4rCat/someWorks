@@ -3,10 +3,39 @@ import random
 # <============mainClassPart============>
 
 class WindowElement:
-    def __init__(self, sizeX=500, sizeY=500):
+    def __init__(self, sizeX=500, sizeY=500, x=0, y=0):
         self.sizeX = sizeX
         self.sizeY = sizeY
+        self.x = x
+        self.y = y
 
+    # <======positionPart======>
+    def getPosX(self):
+        self.x
+
+    def getPosY(self):
+        self.y
+    
+    def setPosX(self, newX):
+        self.x += newX
+
+    def setPosY(self, newY):
+        self.y += newY
+
+    # <======sizePart======>
+    def getSizeX(self):
+        self.sizeX
+    
+    def getSizeY(self):
+        self.sizeY
+    
+    def setSizeX(self, x):
+        if(x>0):
+            self.sizeX += x
+    
+    def setSizeY(self, y):
+        if(y>0):
+            self.sizeX += y
     
 # <============ChildrenClassesPart============>
 
@@ -35,4 +64,3 @@ class InputBox(WindowElement):
         self.sampleText = sampleText
         self.font = font
         self.color = color
-
