@@ -24,47 +24,50 @@ void TaskI()
 
 void TaskII()
 {
-    int n=1;
+    int i, sum, n=1;
     double d;
-
+    
     cout << "Enter n value: ";
     cin >> n;
+    
+    double* p = new double[n];
 
-    while(true){
-        cin >> d;
-        if(d == 0){
-            break;
-        }
-        n++;
-        double* v = new double[n];
-        
-        
-        v[n-1]=d;
-
+    for (i = 0; i < n; i++){
+        p[i] = rand() % 10 + (-5);
     }
+    for (i = 0; i < n; i++){
+        cout << p[i] << "\t";
+    }
+    for (i = 0; i < n; i++){
+        if(abs(p[i]) > 2){
+            sum = sum +(p[i]*p[i]);
+        }
+    }
+    cout << sum;
 
 }
 
 
 int main()
 {
-    int choice;
-
     srand(time(0));
 
     while (true)
     {
+        int choice;
+        
         cout << "\nChoice task:" << endl;
         cout << "1 - taskI" << endl;
         cout << "2 - taskII" << endl;
         cout << "0 - exit" << endl;
+        cin >> choice;
 
-        switch (choice)
-        {
-            case 1: TaskI; break;
-            case 2: TaskII; break;
+        switch(choice){
+        case 1: TaskI(); break;
+        case 2: TaskII(); break;
+        case 0: return 0;
         default:
-            cout << "error value, try again" << endl; break;
+            cout << "\nerror value, try again" << endl; break;
         }
     }
     
