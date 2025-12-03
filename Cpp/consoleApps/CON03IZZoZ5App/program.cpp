@@ -199,7 +199,7 @@ class TaskV
 
     static int i;
     int x;
-    void (*funcP)(int mass[], int x);
+    void *funcP(int mass[], int x);
 
     string choice;
 
@@ -265,12 +265,12 @@ class TaskV
 
             if (choice == "+"){
                 ApplyToArray(massive, x, PlusFive);
-                funcP = PlusFive;
+                //funcP = &PlusFive;
                 break;
             }
             else if (choice == "-"){
                 ApplyToArray(massive, x, MinusFive);
-                funcP = MinusFive;
+                //funcP = &MinusFive;
                 break;
             }
             else cout << "\n [!] error value, try again"<< endl;
