@@ -123,22 +123,18 @@ class TaskII
 
 class TaskIII
 {
-    
+    int t, sum = 0;
     int sumDigits(int n){
-        int i, q=0, sum = 0, t = n;
-        int parts[]{};
+        if (n > 0){
 
-        while(t > 0){
-        parts[q] = t % 10; 
-        q++;
-        t /= 10;
+        t = n%10;
+
+        sum += t;
+        return sumDigits(n/10);
         }
-        
-        for(int i = 0; i < q; i++){
-            sum += parts[i];
+        else{
+            return 0;
         }
-    
-        return sum + sumDigits(sum);
     }
 
     public: void Program() 
@@ -159,6 +155,7 @@ class TaskIII
             }
 
             sumDigits(num);
+            cout<<sum;
 
         }
 
