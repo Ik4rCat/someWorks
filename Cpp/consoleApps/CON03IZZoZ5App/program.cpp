@@ -75,7 +75,7 @@ class TaskII
         cout << "\nSum: " << x + y + z << endl;
     }
 
-    void sum(double x, double y){
+    void sum(int x, int y){
         cout << "\nSum: " << x + y << endl;
     }
 
@@ -128,32 +128,35 @@ class TaskIII
         int i, q=0, sum = 0, t = n;
         int parts[]{};
 
-        if (t = 0){
-            cout << "Bro, it's : " << n << "what u want summing here?" << endl;
-            return n;
-        }
-        else if (t < 10){
-            cout << "Your friendly num is single-digit: " << n << endl;
-            return n;
-        }
-
         while(t > 0){
         parts[q] = t % 10; 
         q++;
-        n /= 10;
+        t /= 10;
         }
         
-        //for 
-        return sum + sumDigits;
-
+        for(int i = 0; i < q; i++){
+            sum += parts[i];
+        }
+    
+        return sum + sumDigits(sum);
     }
 
     public: void Program() 
         {
             int num;
 
-            cout << "Enter friendly num: " << endl;
+            cout << "\nEnter friendly num: " << endl;
             cin >> num;
+
+            if (num == 0){
+                cout << "\nBro, it's : " << num << " what u want summing here?" << endl;
+                return;
+            }
+        
+            if (num < 10){
+                cout << "\nYour friendly num is single-digit: " << num << endl;
+                return;
+            }
 
             sumDigits(num);
 
@@ -161,6 +164,14 @@ class TaskIII
 
 };
 
+
+class TaskIV
+{
+    
+
+
+
+};
 
 
 
@@ -170,6 +181,7 @@ int main()
     TaskI taskI;
     TaskII taskII;
     TaskIII taskIII;
+    TaskIV taskIV;
 
     srand(time(0));
 
