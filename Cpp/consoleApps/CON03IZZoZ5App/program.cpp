@@ -165,8 +165,32 @@ class TaskIII
 class TaskIV
 {
     
+  
+    void swap(int* x, int* y){
+        int* i; 
+
+        *i = *x;
+        *x = *y;
+        *y = *i;
+
+    }
 
 
+    public: void Program(){
+
+        int x = 0, y = 0;
+        int* px = &x;
+        int* py = &y;
+
+        cout << "\nEnter nums x & y: ";
+        cin >> *px >> *py;
+
+        cout << "before: " << *px << " " << *py << endl;
+
+        swap(px, py);
+
+        cout << "After swap: " << *px << " " << *py << endl;
+    } 
 
 };
 
@@ -191,6 +215,7 @@ int main()
         cout << "1 - taskI" << endl;
         cout << "2 - taskII" << endl;
         cout << "3 - taskIII" << endl;
+        cout << "4 - taskIV" << endl;
         cout << "0 - exit" << endl;
 
         cin >> choice;
@@ -199,6 +224,7 @@ int main()
         case 1: taskI.Program(); break;
         case 2: taskII.Program(); break;
         case 3: taskIII.Program(); break;
+        case 4: taskIV.Program(); break;
         case 0: cout << "Exiting program..." << endl; return 0;
 
         default:
