@@ -1,20 +1,21 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class TaskI 
 {
-    void area(int r){
+    void area(double r){
         double S = 3.14 * r * r;
         cout << "\nArea of circle: " << S << endl;
     }
 
-    void area(int x, int y){
-        int S = x * y;
+    void area(double x, double y){
+        double S = x * y;
         cout << "\nArea of rectangle: " << S << endl;
     }
 
-    void area(int a, int b, int h){
-        int S = a + b / 2 * h;
+    void area(double a, double b, double h){
+        double S = a + b / 2 * h;
         cout << "\nArea of trapezoid: " << S << endl;
     }
 
@@ -66,11 +67,11 @@ class TaskI
 class TaskII
 {
 
-    void sum(int x, int y){
+    void sum(double x, double y){
         cout << "\nSum: " << x + y << endl;
     }
 
-    void sum(int x, int y, int z){
+    void sum(double x, double y, double z){
         cout << "\nSum: " << x + y + z << endl;
     }
 
@@ -91,14 +92,14 @@ class TaskII
 
         switch (choice){
             case 1: {
-                int x, y;
+                double x, y;
                 cout << "\nEnter two friendly: ";
                 cin >> x >> y;
                 sum(x, y);
                 break;
             }
             case 2: {
-                int x, y, z;
+                double x, y, z;
                 cout << "\nEnter three friendly: ";
                 cin >> x >> y >> z;
                 sum(x, y, z);
@@ -124,11 +125,27 @@ class TaskIII
 {
     
     int sumDigits(int n){
-        int sum = 0;
-        if (n = 0){
+        int i, q=0, sum = 0, t = n;
+        int parts[]{};
+
+        if (t = 0){
             cout << "Bro, it's : " << n << "what u want summing here?" << endl;
             return n;
         }
+        else if (t < 10){
+            cout << "Your friendly num is single-digit: " << n << endl;
+            return n;
+        }
+
+        while(t > 0){
+        parts[q] = t % 10; 
+        q++;
+        n /= 10;
+        }
+        
+        //for 
+        return sum + sumDigits;
+
     }
 
     public: void Program() 
@@ -143,6 +160,8 @@ class TaskIII
         }
 
 };
+
+
 
 
 int main()
