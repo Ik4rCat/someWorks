@@ -164,33 +164,121 @@ class TaskIII
 
 class TaskIV
 {
-    
+    int x = 0, y = 0;
+    int* px = &x;
+    int* py = &y;
+    int* i; 
   
-    void swap(int* x, int* y){
-        int* i; 
-
-        *i = *x;
-        *x = *y;
-        *y = *i;
+    void swap(){
+        
+        i = px;
+        px = py;
+        py = i; 
 
     }
 
-
     public: void Program(){
 
-        int x = 0, y = 0;
-        int* px = &x;
-        int* py = &y;
+
 
         cout << "\nEnter nums x & y: ";
         cin >> *px >> *py;
 
         cout << "before: " << *px << " " << *py << endl;
 
-        swap(px, py);
+        swap();
 
         cout << "After swap: " << *px << " " << *py << endl;
     } 
+
+};
+
+
+class TaskV
+{
+
+    static int i;
+    int x;
+    void (*funcP)(int mass[], int x);
+
+    string choice;
+
+
+    static void PlusFive(int mass[], int x){
+        for (i = 0; i < x; i++){
+            mass[i] += 5;
+        }
+    }
+
+    static void MinusFive(int mass[], int x){
+        for (i = 0; i < x; i++){
+            mass[i] -= 5;
+        }
+    }
+
+    void ApplyToArray(int mass[], int x,void (*func)(int[], int)){
+        string ch;
+
+        cout << "Are u sure? (yes/no !Fingerprint!)" << endl;
+        cin >> ch;
+
+        while (true)
+        {
+            if (ch == "yes" || ch == "Yes" || ch == "y" || ch == "Y"){
+                func(mass, x);
+                break;
+            }
+            else if (ch == "no" || ch == "No" || ch == "n" || ch == "N"){
+                func(mass, x);
+                break;
+            }
+            else cout << "error value, try again"<< endl;
+        }    
+    }
+
+    public: void Program(){
+        int massive[x];
+
+        cout << "Enter massive size: ";
+        cin >> x;
+
+        // input
+        for (i = 0; i < x; i++){
+            cout << "Enter num: ";
+            cin >> massive[i];
+        }
+
+        //output
+        for(i = 0; i < x; i++){
+            for(int q = 0; q < 3; q++ ){
+                cout << massive[i] << "\t";
+            }
+            cout << endl;
+        }
+
+        cout << "What u want to do with massive?" << endl;
+        cout << " - +5 (press +)" << endl;
+        cout << " - -5 (press -)" << endl;
+
+        while (true)
+        {
+
+            if (choice == "+"){
+                ApplyToArray(massive, x, PlusFive);
+                funcP = PlusFive;
+                break;
+            }
+            else if (choice == "-"){
+                ApplyToArray(massive, x, MinusFive);
+                funcP = MinusFive;
+                break;
+            }
+            else cout << "\n [!] error value, try again"<< endl;
+
+        }
+        
+
+    }
 
 };
 
@@ -203,6 +291,7 @@ int main()
     TaskII taskII;
     TaskIII taskIII;
     TaskIV taskIV;
+    TaskV taskV;
 
     srand(time(0));
 
@@ -216,6 +305,7 @@ int main()
         cout << "2 - taskII" << endl;
         cout << "3 - taskIII" << endl;
         cout << "4 - taskIV" << endl;
+        cout << "5 - taskV" << endl;
         cout << "0 - exit" << endl;
 
         cin >> choice;
@@ -225,6 +315,7 @@ int main()
         case 2: taskII.Program(); break;
         case 3: taskIII.Program(); break;
         case 4: taskIV.Program(); break;
+        case 5: taskV.Program(); break;
         case 0: cout << "Exiting program..." << endl; return 0;
 
         default:
