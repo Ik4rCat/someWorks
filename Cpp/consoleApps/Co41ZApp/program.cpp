@@ -62,9 +62,37 @@ class TaskI
 
 class TaskII
 {
+    int size = rand() % (15-3+1), i;
 
+    void delDubbles(int mass[]){
+        int bclone[size];
+
+        for(i = 0; i < size; i++){
+            bclone[i] = mass[i];
+        }    
+
+        //check_time
+        for (i = 0; i < size; i++){
+
+        }
+
+    }
 
     public: void Program(){
+        int massive[size];
+
+        cout << "massive size: " << size << endl;
+
+        for (i = 0; i < size; i++){
+            massive[i] = rand() % 100;
+        }
+
+        cout << "your massive:"  << endl;
+
+        for (i = 0; i < size; i++){
+            cout << massive[i] << "\t";
+        }
+        cout << endl;
 
     }
 
