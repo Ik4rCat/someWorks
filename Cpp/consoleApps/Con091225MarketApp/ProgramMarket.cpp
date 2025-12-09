@@ -5,10 +5,6 @@ using namespace std;
 
 class ProductData
 {
-
-    vector<string> category = {"Electronic", "Food", "Pet food", "Drinks"};
-
-    
     struct Product
     {
         char name[50];
@@ -25,6 +21,9 @@ class ProductData
             cout << "price - " << price << endl;
         }
     }_Product;
+
+    vector<string> category = {"Electronic", "Food", "Pet food", "Drinks"};
+    // vector<string>
 
     public: Product GetStruct(){
         return _Product;
@@ -79,7 +78,6 @@ class Depot
                 default: cout << "error value, try again pls" << endl; break;
             }
         }
-
 };
 
 
@@ -89,7 +87,7 @@ class ProgramStarted
     Depot dp;
 
     void CheckDepotOnStarted(){
-        
+
     }
 
     public: void Program()
