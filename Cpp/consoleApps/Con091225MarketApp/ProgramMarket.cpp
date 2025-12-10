@@ -3,14 +3,28 @@
 #include <vector>
 using namespace std;
 
+
 class ProductData
 {
+    public: 
+        static vector<string> category;
+        static vector<string> foodCategory;
+        static bool isFood;
+
+    struct FoodInternals
+    {
+        double expirationDate;
+        bool fridgeNeeded;
+    };
+
     struct Product
     {
         char name[50];
         char category[50];
         int quantity;
         double price;
+
+        FoodInternals fi;
 
         void info(){
             cout << endl;
@@ -19,15 +33,30 @@ class ProductData
             cout << "category - " << category << endl;
             cout << "quantity - " << quantity << endl;
             cout << "price - " << price << endl;
+
+            if(isFood){
+                cout << "Expiration date:" << fi.expirationDate << endl;
+                if(fi.fridgeNeeded) cout << "Product need a fridge!" << endl;
+                else cout << "Product don't need a fridge" << endl;
+            }
         }
     }_Product;
+  
 
-    vector<string> category = {"Electronic", "Food", "Pet food", "Drinks"};
-    // vector<string>
+                                  
+    public: 
+        Product GetStruct(){
+            return _Product;
+        }
 
-    public: Product GetStruct(){
-        return _Product;
-    }
+        void UpdateDepotCategory(){
+            category = {"Electronic", "household chemicals", "hygiene products"};
+            foodCategory = {"Pet food", "Meat", "fish", "vegetables",
+                            "fruits", "cereals", "dairy products",
+                            "fats", "sweets", "drinks", "fast food",
+                            "confectionery", "semi-finished products", "national cuisines"};
+        }
+
 };
 
 class Depot
@@ -44,7 +73,46 @@ class Depot
         
         cout << "What Product do u want to add" << endl;
         cout << "  -product name: ";
-        cin >> product.name ; 
+        cin >> product.name;
+
+        cout << endl;
+
+        cout << "  -product category: ";
+        cin >> product.category;
+
+        for(int i = 0; i < pd.foodCategory.size(); i++){
+            if(product.category == pd.foodCategory[i]){
+                string ch;
+
+                pd.isFood = true;
+                cout << "  -product expirationDate: ";
+                cin >> product.fi.expirationDate;
+                while (true)
+                {
+                    cout << "  -product need fridge [yes/no{FINGERPRINT}]: " ;
+                    cin >> ch;
+
+                    if(ch == "y" || ch == "yes" || ch == "Y" || ch == "YES") {
+                        product.fi.fridgeNeeded = true;
+                        break;
+                    }
+                    else if(ch == "n" || ch == "no" || ch == "not" || ch == "N" || ch == "No" || ch == "Not"){
+                        product.fi.fridgeNeeded = false;
+                        break;
+                    } 
+                    else cout << "error, try again" << endl;
+                }
+            }
+        }        
+
+        cout << "  -product quantity: ";
+        cin >> product.quantity;
+
+        cout << "  -product price (one thing): ";
+        cin >> product.price;
+
+        cout << endl;
+        product.info();
     }
 
     void RemoveProduct(){
@@ -60,11 +128,6 @@ class Depot
         void UpdateDepot(){
             auto product = pd.GetStruct();
             product = {};
-        }
-
-        void UpdateDepotCategory(){
-            auto product = pd.GetStruct();
-            
         }
 
         void Manager(int usrChoice)
@@ -115,8 +178,9 @@ class ProgramStarted
 
 int main()
 {
+    ProductData pd;
     ProgramStarted ps;
 
-    // if (product.category == NULL) dp.UpdateDepotCategory();
+    pd.UpdateDepotCategory();
     ps.Program();
 }
