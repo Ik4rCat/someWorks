@@ -54,6 +54,10 @@ class ProductData
                             "confectionery", "semi-finished products", "national cuisines"};
         }
 
+        // void CUTT(string category){
+        //     _Product.category = category;
+        // }
+
 };
 
 class Depot
@@ -67,6 +71,16 @@ class Depot
 
     void AddProduct(){
         auto product = pd.GetStruct();
+        string categoryChoice;
+        bool generalC = false;
+
+        vector<string> abcd = {"a", "b", "c", "d", 
+            "e", "f", "g", "h",
+             "i", "j", "k", "l",
+              "m", "n", "o", "p",
+               "q", "r", "s", "t",
+                "u", "v", "w", "x",
+                 "y", "z"};
         
         cout << "What Product do u want to add" << endl;
         cout << "  -product name: ";
@@ -77,16 +91,26 @@ class Depot
         cout << "  -product category (choice one from list): " << endl;
         cout << " ==general categories" << endl;
         for(int i = 0; i < allCategory.size(); i++){
-            cout << "  " << i << "-" << allCategory[i] << endl;
+            cout << "  " << abcd[i] << "-" << allCategory[i] << endl;
         }
         cout << endl;
         cout << " ==food&drinks categories" << endl;
         for(int i = 0; i < foodCategory.size(); i++){
             cout <<  "  " << i << "-" << foodCategory[i] << endl;
         }
+        cin >> categoryChoice;
+        
+        for (int i = 0; i < abcd.size(); i++)
+        {
+            if (abcd[i] == categoryChoice){
+                generalC = true;
+                //product.category = allCategory[i];
+            }
+        }
 
-        cin >> product.category;
-
+        if(!generalC) //product.category = foodCategory[stoi(categoryChoice)];
+        
+        
         for(int i = 0; i < foodCategory.size(); i++){
             if(product.category == foodCategory[i]){
                 string ch;
