@@ -3,14 +3,12 @@
 #include <vector>
 using namespace std;
 
+static vector<string> allCategory;
+static vector<string> foodCategory;
+static bool isFood;
 
 class ProductData
 {
-    public: 
-        static vector<string> category;
-        static vector<string> foodCategory;
-        static bool isFood;
-
     struct FoodInternals
     {
         double expirationDate;
@@ -41,7 +39,6 @@ class ProductData
             }
         }
     }_Product;
-  
 
                                   
     public: 
@@ -50,7 +47,7 @@ class ProductData
         }
 
         void UpdateDepotCategory(){
-            category = {"Electronic", "household chemicals", "hygiene products"};
+            allCategory = {"Electronic", "household chemicals", "hygiene products"};
             foodCategory = {"Pet food", "Meat", "fish", "vegetables",
                             "fruits", "cereals", "dairy products",
                             "fats", "sweets", "drinks", "fast food",
@@ -77,14 +74,24 @@ class Depot
 
         cout << endl;
 
-        cout << "  -product category: ";
+        cout << "  -product category (choice one from list): " << endl;
+        cout << " ==general categories" << endl;
+        for(int i = 0; i < allCategory.size(); i++){
+            cout << "  " << i << "-" << allCategory[i] << endl;
+        }
+        cout << endl;
+        cout << " ==food&drinks categories" << endl;
+        for(int i = 0; i < foodCategory.size(); i++){
+            cout <<  "  " << i << "-" << foodCategory[i] << endl;
+        }
+
         cin >> product.category;
 
-        for(int i = 0; i < pd.foodCategory.size(); i++){
-            if(product.category == pd.foodCategory[i]){
+        for(int i = 0; i < foodCategory.size(); i++){
+            if(product.category == foodCategory[i]){
                 string ch;
 
-                pd.isFood = true;
+                isFood = true;
                 cout << "  -product expirationDate: ";
                 cin >> product.fi.expirationDate;
                 while (true)
