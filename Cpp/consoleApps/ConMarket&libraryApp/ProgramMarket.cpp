@@ -49,7 +49,7 @@ class ProductData
         //     return buferProduct;
         // }
 
-        void UpdateDepotCategory(){
+        void UpdateBooksCategory(){
             allCategory = {"Electronic", "household chemicals", "hygiene products"};
             foodCategory = {"Pet food", "Meat", "fish", "vegetables",
                             "fruits", "cereals", "dairy products",
@@ -242,6 +242,6 @@ int main()
     ProductData pd;
     ProgramStarted ps;
 
-    pd.UpdateDepotCategory();
+    pd.UpdateBooksCategory();
     ps.Program();
 }
