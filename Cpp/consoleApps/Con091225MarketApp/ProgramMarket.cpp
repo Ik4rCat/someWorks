@@ -5,6 +5,7 @@ using namespace std;
 
 static vector<string> allCategory;
 static vector<string> foodCategory;
+
 static bool isFood;
 
 class ProductData
@@ -12,14 +13,17 @@ class ProductData
     struct FoodInternals
     {
         double expirationDate;
+
         bool fridgeNeeded;
     };
 
     struct Product
     {
-        char name[50];
-        char category[50];
+        string name;
+        string category;
+
         int quantity;
+
         double price;
 
         FoodInternals fi;
@@ -39,12 +43,11 @@ class ProductData
             }
         }
     }_Product;
-
                                   
     public: 
-        Product GetStruct(){
-            return _Product;
-        }
+        // Product GetStruct(){
+        //     return buferProduct;
+        // }
 
         void UpdateDepotCategory(){
             allCategory = {"Electronic", "household chemicals", "hygiene products"};
@@ -54,9 +57,15 @@ class ProductData
                             "confectionery", "semi-finished products", "national cuisines"};
         }
 
-        // void CUTT(string category){
-        //     _Product.category = category;
-        // }
+        Product CreateProduct(string n, string cat, int quant, double pr, double expD, bool frgN){
+            Product prd = {n, cat, quant, pr};
+            if (isFood) prd.fi = {expD, frgN};
+            products.push_back(prd);
+            return prd;
+        }
+
+        vector<Product> products;
+
 
 };
 
@@ -65,89 +74,109 @@ class Depot
     ProductData pd;
 
     void CheckDepot(){
-        auto product = pd.GetStruct();
-
+        // auto product = pd.GetStruct();
+        if (pd.products.empty()){
+            cout << "No product in Depot" << endl;
+        }
+        else{
+            cout << "Now in Depot" << endl;
+            for (int i = 0; i < pd.products.size(); i ++){
+                cout << "product #" << i << endl;
+                pd.products[i].info();
+            }
+            cout << "End of Depot" << endl;
+        }
     }
 
     void AddProduct(){
-        auto product = pd.GetStruct();
-        string categoryChoice;
-        bool generalC = false;
-
-        vector<string> abcd = {"a", "b", "c", "d", 
-            "e", "f", "g", "h",
-             "i", "j", "k", "l",
-              "m", "n", "o", "p",
-               "q", "r", "s", "t",
-                "u", "v", "w", "x",
-                 "y", "z"};
+        string name;
+        string category = "";
         
+        int categoryChoice;
+        int quantity;
+
+        double price;
+        double expirationDate;
+
+        bool fridgeNeeded;
+        
+        cout << endl;
         cout << "What Product do u want to add" << endl;
         cout << "  -product name: ";
-        cin >> product.name;
+        cin >> name;
 
         cout << endl;
 
         cout << "  -product category (choice one from list): " << endl;
         cout << " ==general categories" << endl;
+
         for(int i = 0; i < allCategory.size(); i++){
-            cout << "  " << abcd[i] << "-" << allCategory[i] << endl;
+            cout << "  " << i << "-" << allCategory[i] << endl;
         }
+
         cout << endl;
+
         cout << " ==food&drinks categories" << endl;
-        for(int i = 0; i < foodCategory.size(); i++){
+        for(int i = allCategory.size(); i < foodCategory.size(); i++){
             cout <<  "  " << i << "-" << foodCategory[i] << endl;
         }
+
         cin >> categoryChoice;
         
-        for (int i = 0; i < abcd.size(); i++)
-        {
-            if (abcd[i] == categoryChoice){
-                generalC = true;
-                //product.category = allCategory[i];
-            }
+        if(categoryChoice < allCategory.size()) {
+            category = allCategory[categoryChoice];
+            isFood = false;
+        } 
+        else{
+            int foodIndex = categoryChoice - allCategory.size();
+            category = foodCategory[foodIndex];
+            isFood = true;
         }
-
-        if(!generalC) //product.category = foodCategory[stoi(categoryChoice)];
         
-        
-        for(int i = 0; i < foodCategory.size(); i++){
-            if(product.category == foodCategory[i]){
-                string ch;
+        if(isFood){
+            string ch;
 
-                isFood = true;
-                cout << "  -product expirationDate: ";
-                cin >> product.fi.expirationDate;
-                while (true)
-                {
-                    cout << "  -product need fridge [yes/no{FINGERPRINT}]: " ;
-                    cin >> ch;
+            cout << "  -product expirationDate: ";
+            cin >> expirationDate;
+            while (true)
+            {
+                cout << "  -product need fridge [yes/no{FINGERPRINT}]: " ;
+                cin >> ch;
 
-                    if(ch == "y" || ch == "yes" || ch == "Y" || ch == "YES") {
-                        product.fi.fridgeNeeded = true;
-                        break;
-                    }
-                    else if(ch == "n" || ch == "no" || ch == "not" || ch == "N" || ch == "No" || ch == "Not"){
-                        product.fi.fridgeNeeded = false;
-                        break;
-                    } 
-                    else cout << "error, try again" << endl;
+                if(ch == "y" || ch == "yes" || ch == "Y" || ch == "YES") {
+                    fridgeNeeded = true;
+                    break;
                 }
+                else if(ch == "n" || ch == "no" || ch == "not" || ch == "N" || ch == "No" || ch == "Not"){
+                    fridgeNeeded = false;
+                    break;
+                } 
+                else cout << "error, try again" << endl;
             }
+            
         }        
 
         cout << "  -product quantity: ";
-        cin >> product.quantity;
+        cin >> quantity;
 
         cout << "  -product price (one thing): ";
-        cin >> product.price;
+        cin >> price;
 
-        cout << endl;
-        product.info();
+        cout << endl;   
+
+        auto newPrd = pd.CreateProduct(name, category, quantity, price, expirationDate, fridgeNeeded);
+        newPrd.info();
     }
 
     void RemoveProduct(){
+        int ch;
 
+        CheckDepot();
+        cout << endl;
+        cout << "What product u want delete: " << endl;
+        cin >> ch;
+
+        pd.products.erase(pd.products.begin() + (ch-1));
     }
 
     void SaveData(){
@@ -156,11 +185,6 @@ class Depot
     }
 
     public:
-        void UpdateDepot(){
-            auto product = pd.GetStruct();
-            product = {};
-        }
-
         void Manager(int usrChoice)
         {
             switch (usrChoice){
