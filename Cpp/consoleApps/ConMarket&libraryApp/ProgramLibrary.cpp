@@ -5,9 +5,7 @@ using namespace std;
 
 static vector<string> allCategory;
 
-static bool isFood;
-
-class ProductData
+class Data
 {
     struct Book
     {
@@ -39,31 +37,34 @@ class ProductData
 
     struct Library
     {
-        Book* books;
-
         int capacity;
-        int count;
+        int pastCapacity;
+        int count = 0;
+
+        Book* books;
 
         void LInfo(){
             cout << endl;
             cout << "Library-INFO:" << endl;
             cout << "We have: " << endl;
             cout << "  - " << count << "books" << endl;
+            cout << "  - library capacity: " << capacity << endl;
 
         }
     };
      
-    Library lib;
+
     
     public:
-        int bench = 25, booksOnBench = 15;
+        Library lib;    
+    
+        int bench = 25, booksOnBench = 15, cap = bench * booksOnBench;
 
-        vector<Book> books();    
+        vector<Book> books;    
         
-
-        Library GetLibraryData(){
-            return lib;
-        }
+        // Library GetLibraryData(){
+        //     return lib;
+        // }
 
         void UpdateBooksCategory(){
             allCategory = {"Electronic", "household chemicals", "hygiene products"};
@@ -75,54 +76,57 @@ class ProductData
             return book;
         }
 
-        
-
         void IniLibrary(){
-            lib = {(bench*booksOnBench), books.size()}
+            //lib = { cap, 0, books.size()};
         }
-
 };
 
-class Depot
+class LibFunc
 {
-    ProductData pd;
+    Data data;
 
-    void CheckDepot(){
+    void CheckLibrary(){
         // auto product = pd.GetStruct();
-        if (pd.products.empty()){
-            cout << "No product in Depot" << endl;
+        if (data.books.empty()){
+            cout << "No books in Library" << endl;
         }
         else{
-            cout << "Now in Depot" << endl;
-            for (int i = 0; i < pd.products.size(); i ++){
-                cout << "product #" << i << endl;
-                pd.products[i].info();
+            cout << "Now in Library" << endl;
+            for (int i = 0; i < data.books.size(); i ++){
+                cout << "Book #" << i << endl;
+                //data.books[i].info();
             }
             cout << "End of Depot" << endl;
         }
     }
 
-    void AddProduct(){
+    void AddBook(){
         string name;
-        string category = "";
+        string category;
+        string author;
         
         int categoryChoice;
-        int quantity;
+        int numberOfPages;
 
         double price;
-        double expirationDate;
-
-        bool fridgeNeeded;
+        bool canBeTakenTemporarily;
         
         cout << endl;
-        cout << "What Product do u want to add" << endl;
-        cout << "  -product name: ";
+        cout << "What Book do u want to add" << endl;
+        
+        cout << "  -book name: ";
         cin >> name;
+        cout << endl;
 
+        cout << "  -book author: ";
+        cin >>  author;
+        cout << endl;
+
+        cout << "  -book number of pages: ";
+        cin >> numberOfPages;
         cout << endl;
 
         cout << "  -product category (choice one from list): " << endl;
-        cout << " ==general categories" << endl;
 
         for(int i = 0; i < allCategory.size(); i++){
             cout << "  " << i << "-" << allCategory[i] << endl;
@@ -130,73 +134,35 @@ class Depot
 
         cout << endl;
 
-        cout << " ==food&drinks categories" << endl;
-        for(int i = 0; i < foodCategory.size(); i++){
-            cout <<  "  " << i + allCategory.size() << "-" << foodCategory[i] << endl;
-        }
-
         cin >> categoryChoice;
         
-        int totalCategories = allCategory.size() + foodCategory.size();
-        if(categoryChoice < 0 || categoryChoice >= totalCategories) {
+        if(categoryChoice < 0 || categoryChoice >=  allCategory.size()){
             cout << "Invalid category choice!" << endl;
             return;
         }
-
-        if(categoryChoice < allCategory.size()) {
-            category = allCategory[categoryChoice];
-            isFood = false;
-        } 
-        else{
-            int foodIndex = categoryChoice - allCategory.size();
-            category = foodCategory[foodIndex];
-            isFood = true;
-        }
-        
-        if(isFood){
-            string ch;
-
-            cout << "  -product expirationDate: ";
-            cin >> expirationDate;
-            while (true)
-            {
-                cout << "  -product need fridge [yes/no{FINGERPRINT}]: " ;
-                cin >> ch;
-
-                if(ch == "y" || ch == "yes" || ch == "Y" || ch == "YES") {
-                    fridgeNeeded = true;
-                    break;
-                }
-                else if(ch == "n" || ch == "no" || ch == "not" || ch == "N" || ch == "No" || ch == "Not"){
-                    fridgeNeeded = false;
-                    break;
-                } 
-                else cout << "error, try again" << endl;
-            }
-            
-        }        
-
-        cout << "  -product quantity: ";
-        cin >> quantity;
 
         cout << "  -product price (one thing): ";
         cin >> price;
 
         cout << endl;   
 
-        auto newPrd = pd.CreateProduct(name, category, quantity, price, expirationDate, fridgeNeeded);
-        newPrd.info();
+        
+
+        auto newBook = data.CreateNewBook(name, category, author, numberOfPages, price, canBeTakenTemporarily);
+        data.lib.count ++;
+        data.lib.pastCapacity; 
+        newBook.BookInfo();
     }
 
-    void RemoveProduct(){
+    void RemoveBook(){
         int ch;
 
-        CheckDepot();
+        CheckLibrary();
         cout << endl;
         cout << "What product u want delete: " << endl;
         cin >> ch;
 
-        pd.products.erase(pd.products.begin() + (ch-1));
+        data.books.erase(data.books.begin() + (ch-1));
     }
 
     void SaveData(){
@@ -208,10 +174,11 @@ class Depot
         void Manager(int usrChoice)
         {
             switch (usrChoice){
-                case 1: CheckDepot(); break;
-                case 2: AddProduct(); break;
-                case 3: RemoveProduct(); break;
-                case 4: SaveData(); break;
+                case 1: data.lib.LInfo();
+                case 2: CheckLibrary(); break;
+                case 3: AddBook(); break;
+                case 4: RemoveBook(); break;
+                case 5: SaveData(); break;
                 case 0: exit(0);
                 default: cout << "error value, try again pls" << endl; break;
             }
@@ -221,12 +188,8 @@ class Depot
 
 class ProgramStarted
 {
-    ProductData pd;
-    Depot dp;
-
-    void CheckDepotOnStarted(){
-
-    }
+    Data data;
+    LibFunc libF;
 
     public: void Program()
     {
@@ -236,15 +199,16 @@ class ProgramStarted
             cout << endl;
             cout << "<==Welcome to Library Manager CLI==>" << endl;
             cout << "What u want to do with books today?" << endl;
-            cout << "  - 1. check " << endl;
-            cout << "  - 2. add new product in depot" << endl;
-            cout << "  - 3. remove product from depot" << endl;
-            cout << "  - 4. save data" << endl;
+            cout << "  - 1. about library" << endl; 
+            cout << "  - 2. check books in library" << endl;
+            cout << "  - 3. add new product in depot" << endl;
+            cout << "  - 4. remove product from depot" << endl;
+            cout << "  - 5. save data" << endl;
             cout << "  - 0. exit program" << endl;
             
             cout << "Choice: ";
             cin >> choice;
-            dp.Manager(choice);
+            libF.Manager(choice);
         }
     }
 };
@@ -253,9 +217,9 @@ class ProgramStarted
 
 int main()
 {
-    ProductData pd;
+    Data data;
     ProgramStarted ps;
 
-    pd.UpdateBooksCategory();
+    data.UpdateBooksCategory();
     ps.Program();
 }
