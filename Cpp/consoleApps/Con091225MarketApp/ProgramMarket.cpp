@@ -117,12 +117,18 @@ class Depot
         cout << endl;
 
         cout << " ==food&drinks categories" << endl;
-        for(int i = allCategory.size(); i < foodCategory.size(); i++){
-            cout <<  "  " << i << "-" << foodCategory[i] << endl;
+        for(int i = 0; i < foodCategory.size(); i++){
+            cout <<  "  " << i + allCategory.size() << "-" << foodCategory[i] << endl;
         }
 
         cin >> categoryChoice;
         
+        int totalCategories = allCategory.size() + foodCategory.size();
+        if(categoryChoice < 0 || categoryChoice >= totalCategories) {
+            cout << "Invalid category choice!" << endl;
+            return;
+        }
+
         if(categoryChoice < allCategory.size()) {
             category = allCategory[categoryChoice];
             isFood = false;
