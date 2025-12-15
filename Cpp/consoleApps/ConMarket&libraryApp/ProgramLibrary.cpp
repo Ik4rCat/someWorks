@@ -60,11 +60,11 @@ class Data
     
         int bench = 25, booksOnBench = 15, cap = bench * booksOnBench;
 
-        vector<Book> books;    
+        static vector<Book> books;
         
-        // Library GetLibraryData(){
-        //     return lib;
-        // }
+        Library GetLibraryData(){
+             return lib;
+        }
 
         void UpdateBooksCategory(){
             allCategory = {"Electronic", "household chemicals", "hygiene products"};
@@ -77,9 +77,10 @@ class Data
         }
 
         void IniLibrary(){
-            //lib = { cap, 0, books.size()};
+            lib = { cap, 0, int(books.size())};
         }
 };
+
 
 class LibFunc
 {
@@ -94,7 +95,7 @@ class LibFunc
             cout << "Now in Library" << endl;
             for (int i = 0; i < data.books.size(); i ++){
                 cout << "Book #" << i << endl;
-                //data.books[i].info();
+                data.books[i].BookInfo();
             }
             cout << "End of Depot" << endl;
         }
