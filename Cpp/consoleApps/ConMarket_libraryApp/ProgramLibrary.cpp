@@ -67,11 +67,20 @@ class Data
         }
 
         void UpdateBooksCategory(){
-            allCategory = {"Electronic", "household chemicals", "hygiene products"};
+            allCategory = {"Novel", "Short story", "Novelette", "Fantasy", 
+                "Science Fiction", "Detective", "Mystery", "Thriller",
+                "Horror", "Romance", "Historical Fiction",
+                "Adventure", "Biography", "Autobiography",
+                "Poetry", "Drama", "Satire",
+                "Dystopian", "Gothic Fiction", "Noir",
+                "Action", "Western", "Cyberpunk",
+                "Post-Apocalyptic", "Memoir", "Popular Science",
+                "Fairy Tale", "Mythology", "Self-Help",
+                "Travel", "Philosophy", "Humor"};
         }
 
         Book CreateNewBook(string name, string cat, string author, int NOfP, double price, bool TemporarilyTaken){
-            Book book = {name, cat, author, NOfP, price};
+            Book book = {name, cat, author, NOfP, price, TemporarilyTaken};
             books.push_back(book);
             return book;
         }
@@ -108,6 +117,7 @@ class LibFunc
         
         int categoryChoice;
         int numberOfPages;
+        int cTT;
 
         double price;
         bool canBeTakenTemporarily;
@@ -127,7 +137,7 @@ class LibFunc
         cin >> numberOfPages;
         cout << endl;
 
-        cout << "  -product category (choice one from list): " << endl;
+        cout << "  -Book category (choice one from list): " << endl;
 
         for(int i = 0; i < allCategory.size(); i++){
             cout << "  " << i << "-" << allCategory[i] << endl;
@@ -141,6 +151,20 @@ class LibFunc
             cout << "Invalid category choice!" << endl;
             return;
         }
+
+        cout << endl;
+        
+        cout << "  -you chose category: " << allCategory[categoryChoice] << endl;
+
+        cout << endl;
+
+        cout << "  -can this book be taken temporarily? (1-yes, 0-no): ";
+        cin >> cTT;
+
+        if (cTT == 1) canBeTakenTemporarily = true;
+        else canBeTakenTemporarily = false;
+
+        cout << endl;
 
         cout << "  -product price (one thing): ";
         cin >> price;
