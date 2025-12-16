@@ -47,7 +47,7 @@ class Data
             cout << endl;
             cout << "Library-INFO:" << endl;
             cout << "We have: " << endl;
-            cout << "  - " << count << "books" << endl;
+            cout << "  - " << count << " books" << endl;
             cout << "  - library capacity: " << capacity << endl;
 
         }
@@ -60,7 +60,7 @@ class Data
     
         int bench = 25, booksOnBench = 15, cap = bench * booksOnBench;
 
-        static vector<Book> books;
+        vector<Book> books;
         
         Library GetLibraryData(){
              return lib;
@@ -70,7 +70,7 @@ class Data
             allCategory = {"Electronic", "household chemicals", "hygiene products"};
         }
 
-        Book CreateNewBook(string name, string cat, string author, int NOfP, int price, bool TemporarilyTaken){
+        Book CreateNewBook(string name, string cat, string author, int NOfP, double price, bool TemporarilyTaken){
             Book book = {name, cat, author, NOfP, price};
             books.push_back(book);
             return book;
