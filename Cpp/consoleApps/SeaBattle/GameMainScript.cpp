@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+#include <scripts/SeaBattle.h>
+
 using namespace std;
 
 void ascii(){
@@ -9,45 +11,45 @@ void ascii(){
     cout << "\033[1;37m"; 
 
     cout << endl;
-    cout << "                          ...----...." << endl;
-    cout << "                    ..-:\"''         ''\"-.." << endl;
-    cout << "                 .-'                      '-." << endl;
-    cout << "               .'              .     .       '." << endl;
-    cout << "             .'   .          .    .      .    .''." << endl;
-    cout << "           .'  .    .       .   .   .     .   . ..:." << endl;
-    cout << "         .' .   . .  .       .   .   ..  .   . ....::." << endl;
-    cout << "        ..   .   .      .  .    .     .  ..  . ....:IA." << endl;
-    cout << "       .:  .   .    .    .  .  .    .. .  .. .. ....:IA." << endl;
-    cout << "      .: .   .   ..   .    .     . . .. . ... ....:.:VHA." << endl;
-    cout << "      '..  .  .. .   .       .  . .. . .. . .....:.::IHHB." << endl;
-    cout << "     .:. .  . .  . .   .  .  . . . ...:.:... .......:HIHMM." << endl;
-    cout << "    .:.... .   . .\"::\"'.. .   .  . .:.:.:II;,. .. ..:IHIMMA" << endl;
-    cout << "    ':.:..  ..::IHHHHHI::. . .  ...:.::::.,,,. . ....VIMMHM" << endl;
-    cout << "   .:::I. .AHHHHHHHHHHAI::. .:...,:IIHHHHHHMMMHHL:. . VMMMM" << endl;
-    cout << "  .:.:V.:IVHHHHHHHMHMHHH::..:\" .:HIHHHHHHHHHHHHHMHHA. .VMMM." << endl;
-    cout << "  :..V.:IVHHHHHMMHHHHHHHB... . .:VPHHMHHHMMHHHHHHHHHAI.:VMMI" << endl;
-    cout << "  ::V..:VIHHHHHHMMMHHHHHH. .   .I\":IIMHHMMHHHHHHHHHHHAPI:WMM" << endl;
-    cout << "  ::\" . .:.HHHHHHHHMMHHHHHI.  . .:..I:MHMMHHHHHHHHHMHV:'':H:WM" << endl;
-    cout << "  :: . :.::IIHHHHHHMMHHHHV  .ABA.:.:IMHMHMMMHMHHHHV:'. .IHWW" << endl;
-    cout << "  '.  ..:..:.:IHHHHHMMHV\" .AVMHMA.:.'VHMMMMHHHHHV:' .  :IHWV" << endl;
-    cout << "   :.  .:...:\".:.:TPP\"   .AVMMHMMA.:. \"VMMHHHP.:... .. :IVAI" << endl;
-    cout << "  .:.   '... .:\"'   .   ..HMMMHMMMA::. .\"VHHI:::....  .:IHW'" << endl;
-    cout << "  ...  .  . ..:IIPPIH: ..HMMMI.MMMV:I:.  .:ILLH:.. ...:I:IM" << endl;
-    cout << ": .   .'\"' .:.V\". .. .  :HMMM:IMMMI::I. ..:HHIIPPHI::'.P:HM." << endl;
-    cout << ":.  .  .  .. ..:.. .    :AMMM IMMMM..:...:IV\":T::I::.\".:IHIMA" << endl;
-    cout << "'V:.. .. . .. .  .  .   'VMMV..VMMV :....:V:.:..:....::IHHHMH" << endl;
-    cout << "  \"IHH:.II:.. .:. .  . . . \" :HB\"\" . . ..PI:.::.:::..:IHHMMV\"" << endl;
-    cout << "   :IP\"\"HHII:.  .  .    . . .'V:. . . ..:IH:.:.::IHIHHMMMMM\"" << endl;
-    cout << "   :V:. VIMA:I..  .     .  . .. . .  .:.I:I:..:IHHHHMMHHMMM" << endl;
-    cout << "   :\"VI:.VWMA::. .:      .   .. .:. ..:.I::.:IVHHHMMMHMMMMI" << endl;
-    cout << "   :.\"VIIHHMMA:.  .   .   .:  .:.. . .:.II:I:AMMMMMMHMMMMMI" << endl;
-    cout << "   :..VIHIHMMMI...::.,:.,:!\"I:!\"I!\"I!\"V:AI:VAMMMMMMHMMMMMM'" << endl;
-    cout << "   ':.HIHIMHHA:\"!!\"I.:AXXXVVXXXXXXXA:.\"HPHIMMMMHHMHMMMMMV" << endl;
-    cout << "     V:H:I:MA:W'I :AXXXIXII:IIIISSSSSSXXA.I.VMMMHMHMMMMMM" << endl;
-    cout << "       'I::IVA ASSSSXSSSSBBSBMBSSSSSSBBMMMBS.VVMMHIMM'\"'" << endl;
-    cout << "        I:: VPAIMSSSSSSSSSBSSSMMBSSSBBMMMMXXI:MMHIMMI" << endl;
-    cout << "       .I::. \"H:XIIXBBMMMMMMMMMMMMMMMMMBXIXXMMPHIIMM'" << endl;
-    cout << "       :::I.  ':XSSXXIIIIXSSBMBSSXXXIIIXXSMMAMI:.IMM" << endl;
+    cout << "                          ...----...." << "\n";
+    cout << "                    ..-:\"''         ''\"-.." << "\n";
+    cout << "                 .-'                      '-." << "\n";
+    cout << "               .'              .     .       '." << "\n";
+    cout << "             .'   .          .    .      .    .''." << "\n";
+    cout << "           .'  .    .       .   .   .     .   . ..:." << "\n";
+    cout << "         .' .   . .  .       .   .   ..  .   . ....::." << "\n";
+    cout << "        ..   .   .      .  .    .     .  ..  . ....:IA." << "\n";
+    cout << "       .:  .   .    .    .  .  .    .. .  .. .. ....:IA." << "\n";
+    cout << "      .: .   .   ..   .    .     . . .. . ... ....:.:VHA." << "\n";
+    cout << "      '..  .  .. .   .       .  . .. . .. . .....:.::IHHB." << "\n";
+    cout << "     .:. .  . .  . .   .  .  . . . ...:.:... .......:HIHMM." << "\n";
+    cout << "    .:.... .   . .'::\"'.. .'   .'  ...:.:.:II;,. .. ..:IHIMMA" << "\n";
+    cout << "    ':.:..  ..::IHHHHHI::. . .  ...:.::::.,,,. . ....VIMMHM" << "\n";
+    cout << "   .:::I. .AHHHHHHHHHHAI::. .:...,:IIHHHHHHMMMHHL:. . VMMMM" << "\n";
+    cout << "  .:.:V.:IVHHHHHHHMHMHHH::..:\" .:HIHHHHHHHHHHHHHMHHA. .VMMM." << "\n";
+    cout << "  :..V.:IVHHHHHMMHHHHHHHB... . .:VPHHMHHHMMHHHHHHHHHAI.:VMMI" << "\n";
+    cout << "  ::V..:VIHHHHHHMMMHHHH HH. .   .I\":IIM HHMM HH HH HH HAPI:WMM" << "\n";
+    cout << "  ::\" . .:.HHHHHHHHMMHHHHHI.  . .:..I:MHMMHHHHHHHHHMHV:'':H:WM" << "\n";
+    cout << "  :: . :.::IIHHHHHHMMHHHHV  .ABA.:.:IMHMHMMMHMHHHHV:'. .IHWW" << "\n";
+    cout << "  '.  ..:..:.:IHHHHHMMHV\" .AVMHMA.:.'VHMMMMHHHHHV:' .  :IHWV" << "\n";
+    cout << "   :.  .:...:\".:.:TPP\"   .AVMMHMMA.:. \"VMMHHHP.:... .. :IVAI" << "\n";
+    cout << "  .:.   '... .:\"'   .   ..HMMMHMMMA::. .\"VHHI:::....  .:IHW'" << "\n";
+    cout << "  ...  .  . ..:IIPPIH: ..HMMMI.MMMV:I:.  .:ILLH:.. ...:I:IM" << "\n";
+    cout << ": .   .'\"' .:.V\". .. .  :HMMM:IMMMI::I. ..:HHIIPPHI::'.P:HM." << "\n";
+    cout << ":.  .  .  .. ..:.. .    :AMMM IMMMM..:...:IV\":T::I::.\".:IHIMA" << "\n";
+    cout << "'V:.. .. . .. .  .  .   'VMMV..VMMV :....:V:.:..:....::IHHHMH" << "\n";
+    cout << "  \"IHH:.II:.. .:. .  . . . \" :HB\"\" . . ..PI:.::.:::..:IHHMMV\"" << "\n";
+    cout << "   :IP\"\"HHII:.  .  .    . . .'V:. . . ..:IH:.:.::IHIHHMMMMM\"" << "\n";
+    cout << "   :V:. VIMA:I..  .     .  . .. . .  .:.I:I:..:IHHHHMMHHMMM" << "\n";
+    cout << "   :\"VI:.VWMA::. .:      .   .. .:. ..:.I::.:IVHHHMMMHMMMMI" << "\n";
+    cout << "   :.\"VIIHHMMA:.  .   .   .:  .:.. . .:.II:I:AMMMMMMHMMMMMI" << "\n";
+    cout << "   :..VIHIHMMMI...::.,:.,:!\"I:!\"I!\"I!\"V:AI:VAMMMMMMHMMMMMM'" << "\n";
+    cout << "   ':.HIHIMHHA:\"!!\"I.:AXXXVVXXXXXXXA:.\"HPHIMMMMHHMHMMMMMV" << "\n";
+    cout << "     V:H:I:MA:W'I :AXXXIXII:IIIISSSSSSXXA.I.VMMMHMHMMMMMM" << "\n";
+    cout << "       'I::IVA ASSSSXSSSSBBSBMBSSSSSSBBMMMBS.VVMMHIMM'\"'" << "\n";
+    cout << "        I:: VPAIMSSSSSSSSSBSSSMMBSSSBBMMMMXXI:MMHIMMI" << "\n";
+    cout << "       .I::. \"H:XIIXBBMMMMMMMMMMMMMMMMMBXIXXMMPHIIMM'" << "\n";
+    cout << "       :::I.  ':XSSXXIIIIXSSBMBSSXXXIIIXXSMMAMI:.IMM" << "\n";
     cout << endl;
 
     cout << "\033[0m";
