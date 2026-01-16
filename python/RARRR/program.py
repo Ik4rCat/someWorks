@@ -31,4 +31,16 @@ if match:
 
 else:
     print('Incorrect password')
-    
+
+
+
+# -----
+print('-----')
+
+text = 'My phone number is +7(911)666-55-55 and my office number is +1-202-555-0198. I will wait your call at 2027/12/01.'
+match = re.search(r'\+\d{1,3}\(\d{3}\)\d{3}-\d{2}-\d{2}', text)
+if match != None:
+    print('Found phone number: ', match.group())
+    print()
+
+
