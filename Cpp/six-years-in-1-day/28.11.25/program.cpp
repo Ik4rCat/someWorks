@@ -12,9 +12,13 @@ int task1() {
     cout << "Position to delete: "; 
     cin >> pos;                      
     
-    text.erase(pos, 1);              // Delete 1 character at specified position
+    if (pos >= 0 && pos < (int)text.length()) {
+        text.erase(pos, 1);              // Delete 1 character at specified position
+        cout << "Result: " << text << endl;
+    } else {
+        cout << "Error: invalid position!" << endl;
+    }
     
-    cout << "Result: " << text << endl;   
     return 0;                        
 }
 
@@ -35,7 +39,7 @@ int task2() {
         }
     }
     
-    cout << "Result: " << text;  
+    cout << "Result: " << text << endl;  
     return 0;                     
 }
 
@@ -52,9 +56,13 @@ int task3() {
     cout << "Character to insert: ";  
     cin >> x;                  
     
-    text.insert(pos, 1, x);     // Insert character at specified position
+    if (pos >= 0 && pos <= (int)text.length()) {
+        text.insert(pos, 1, x);     // Insert character at specified position
+        cout << "Result: " << text << endl;
+    } else {
+        cout << "Error: invalid position!" << endl;
+    }
     
-    cout << "Result: " << text;   
     return 0;                        
 }
 
@@ -70,7 +78,7 @@ int task4() {
         }
     }
     
-    cout << "Result: " << text;   
+    cout << "Result: " << text << endl;   
     return 0;                        
 }
 
@@ -220,8 +228,4 @@ int main(){
             break;
         }
     }
-
-
-    task6();
-    task7();
 }
