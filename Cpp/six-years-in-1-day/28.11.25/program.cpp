@@ -125,7 +125,7 @@ int task6() {
     return 0;               
 }
 
-int task7() {        
+void task7() {        
     int M;           
     int N;           
     
@@ -174,5 +174,54 @@ int task7() {
 }
 
 int main(){ 
+
+
+       while (true) {
+        int choice;
+
+        cout << "\nChoose task:" << endl;
+        cout << "1 - Task1 " << endl;
+        cout << "2 - Task2 " << endl;
+        cout << "3 - Task3 " << endl;
+        cout << "4 - Task4 " << endl;
+        cout << "5 - Task5 " << endl;
+        cout << "6 - Task6 " << endl;
+        cout << "7 - Task7 " << endl;
+        cout << "0 - Exit" << endl;
+
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            task1();
+            break;
+        case 2:
+            task2();
+            break;
+        case 3:
+            task3();
+            break;
+        case 4:
+            task4();
+            break;
+        case 5:
+            task5();
+            break;
+        case 6:
+            task6();
+            break;
+        case 7:
+            task7();
+            break;
+        case 0:
+            return 0;
+        default:
+            cout << "Invalid value, try again" << endl;
+            break;
+        }
+    }
+
+
+    task6();
     task7();
 }
