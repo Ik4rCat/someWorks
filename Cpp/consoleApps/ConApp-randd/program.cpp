@@ -2,44 +2,49 @@
 #include <random>
 using namespace std;
 
-int RGenerator(int min, int max, int val){
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<int> dist(min, max);
+random_device rd;
+mt19937 gen(rd());
 
-    val = dist(gen);
+unsigned int RGenerator(unsigned int min, unsigned int max){
+    
+    uniform_int_distribution<unsigned int> dist(1, 45);
+
+    cout << "[DEBG] comple gen! {" << dist(gen) << "}" << endl;
+    return dist(gen);
 }
 
-int GenD(int dayN, int mounth){
-    int minDataVal= 1 , maxDataVal= 31;
+unsigned int GenD(unsigned int mounth){
+    unsigned int minDataVal= 1 , maxDataVal= 31;
 
-    //if(mounth == )
+    if(mounth == 2) maxDataVal= 28;
+    // else if (){
 
-    RGenerator(minDataVal, maxDataVal, dayN);
+    // }
+    return RGenerator(minDataVal, maxDataVal);
 
 }
 
-int GenM(int mounthN){
-    int minDataVal= 1 , maxDataVal= 12;
+unsigned int GenM(){
+    unsigned int minDataVal= 1 , maxDataVal= 12;
 
-    RGenerator(minDataVal, maxDataVal, mounthN);
+    return RGenerator(minDataVal, maxDataVal);
 }
 
-int GenY(int yearN){
-    int minDataVal= 1 , maxDataVal= 3000;
-
-    RGenerator(minDataVal, maxDataVal, yearN);
+unsigned int GenY(){
+    unsigned int minDataVal= 1 , maxDataVal= 3000;
+ 
+   return RGenerator(minDataVal, maxDataVal);
 }
 
 int main()
 {
-    int day, mounth, year;
+    unsigned int day, mounth, year;
 
     cout<<"Starting generation"<<endl;
 
-    GenY(year);
-    GenM(mounth);
-    GenD(day, mounth);
+    year = GenY();
+    mounth = GenM();
+    day = GenD(mounth);
 
     cout<<"your data: "<< day << "/" << mounth << "/" << year <<endl;
 
