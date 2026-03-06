@@ -6,13 +6,13 @@ using namespace std;
 class Product{
 private:
     int price;
-    int quantity;
+    string about;
 public:
-    Product() : price(0), quantity(0) {}
+    Product() : price(0), about("") {}
 
     Product(int p, int q){
         price = p;
-        quantity = q;
+        about = q;
     }
 
     ~Product(){}
@@ -21,17 +21,39 @@ public:
         price = newPrice;
     }
 
-    void setQuantity(int newQuantity){
-        quantity = newQuantity;
+    void setQuantity(string newAbout){
+        about = newAbout;
     }
 
     int getPrice() const{
         return price;
     }
 
-    int getQuantity() const{
-        return quantity;
+    string getQuantity() const{
+        return about;
     }
+
+
+    //controller part
+    friend std::ostream& operator<<(std::ostream& out, const Product& p) {  
+        out << "Price: " << p.getPrice() 
+            << ", Quantity: " << p.getQuantity() << endl;
+        return out;
+    }
+
+    friend std::istream& operator>>(std::istream& in, Product& p) {
+        int price;
+        string about;
+ 
+        in >> price >> about;
+ 
+        p.setPrice(price);
+        p.setQuantity(about);
+ 
+        return in;
+    }
+
+
 };
 
 
@@ -41,7 +63,6 @@ class ProductSelling
 private:
     double middlePrice;
     int count;
-
 public:
 
     Product p;
@@ -62,6 +83,29 @@ public:
         return count;
     }
 
+
+    //controller part
+    friend std::ostream& operator<<(std::ostream& out, const ProductSelling& p) {
+        out << "Product price: " << p.p.getPrice()
+            << ", Product quantity: " << p.p.getQuantity()
+            << ", Count: " << p.getCount()
+            << ", Middle price: " << p.getMiddlePrice() << endl;
+        return out;
+    }
+
+    friend std::istream& operator>>(std::istream& in, ProductSelling& p) {
+        int price;
+        int quantity;
+        int count;
+
+        in >> price >> quantity >> count;
+
+        // p.p.setPrice();
+        // p.p.setQuantity();
+        p.setCount(count);
+
+        return in;
+    }
 };
 
 
@@ -91,10 +135,6 @@ public:
         time = newTime;
     }
 
-    void setPrice(double newPrice){
-        price = newPrice;
-    }
-
 
     int getDate() const{
         return date;
@@ -107,12 +147,9 @@ public:
     double getPrice() const{
         return price;
     }
-};
 
-// needed for cout and cin 
-class Controller
-{
-    //Selling part
+
+    //controller part
     friend std::ostream& operator<<(std::ostream& out, const Selling& p) {
         out << "Date: " << p.getDate() 
             << ", Time: " << p.getTime() 
@@ -129,58 +166,31 @@ class Controller
 
         p.setDate(date);
         p.setTime(time);
-        p.setPrice(price);
+        p.SellingSummary();
 
         return in;
     }
 
-    //Product part
-    friend std::ostream& operator<<(std::ostream& out, const Product& p) {  
-        out << "Price: " << p.getPrice() 
-            << ", Quantity: " << p.getQuantity() << endl;
-        return out;
-    }
-
-    friend std::istream& operator>>(std::istream& in, Product& p) {
-        int price;
-        int quantity;
- 
-        in >> price >> quantity;
- 
-        p.setPrice(price);
-        p.setQuantity(quantity);
- 
-        return in;
-    }
-
-    //ProductSelling part
-    friend std::ostream& operator<<(std::ostream& out, const ProductSelling& p) {
-        out << "Product price: " << p.p.getPrice()
-            << ", Product quantity: " << p.p.getQuantity()
-            << ", Count: " << p.getCount()
-            << ", Middle price: " << p.getMiddlePrice() << endl;
-        return out;
-    }
-
-    friend std::istream& operator>>(std::istream& in, ProductSelling& p) {
-        int price;
-        int quantity;
-        int count;
-
-        in >> price >> quantity >> count;
-
-        p.p.setPrice(price);
-        p.p.setQuantity(quantity);
-        p.setCount(count);
-        p.setMiddlePrice();
-
-        return in;
-    }
 };
+
 
 
 
 int main()
 {
+
+    Selling s;
+    Product p;
+    ProductSelling ps;
+
+    cin >> s;
+    cin >> p;
+    cin >> ps;
+
+    
+    cout << s;
+    cout << p;
+    cout << ps;
+
     return 0;
 }
