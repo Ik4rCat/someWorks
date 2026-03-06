@@ -27,19 +27,21 @@ void getValue(std::string promt, T& value){
         std::cin >> value;
     }
     std::string endLine;
-    //getLine(std::cin, endLine);
+    getline(std::cin, endLine);
     
 }
 
-//template <class T>
-//inline void getValue<std::string>(std::string promt, std::string& value)
-//{
-//  std::cout << promt;
-//  getline(std::cin, value);
-//
-//}
+template <>
+inline void getValue<std::string>(std::string promt, std::string& value)
+{
+  std::cout << promt;
+  getline(std::cin, value);
+
+}
 
 int main()
 {
+    int i;
+    getValue("Enter: ", i);
     return 0;
 }
