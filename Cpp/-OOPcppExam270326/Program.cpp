@@ -26,7 +26,7 @@ int main()
     cout << vecIII[4] << endl;
 
     cout << "\nfloat vector: " << endl;
-    Vector<float> vecIV { 3.14, 3 };
+    Vector<float> vecIV { 3.143, 3.154, 3.165 };
     vecIV.print();
 
     cout << "\nPoint's vector: " << endl;
