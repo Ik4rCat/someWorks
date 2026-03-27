@@ -6,6 +6,7 @@ class Point {
 private:
     double x;
     double y;
+    static int count;
     
 public:
     Point();
