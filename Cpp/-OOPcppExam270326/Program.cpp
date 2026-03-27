@@ -32,6 +32,7 @@ int main()
     cout << "after resize(3): " << endl;
     vecI.print();
 
+
     cout << "\ndouble vector: " << endl;
     Vector<double> vecII(3);
     vecII[0] = 1.5;
@@ -50,7 +51,7 @@ int main()
     vecIV.print();
 
     cout << "\nPoint's vector: " << endl;
-    Vector<Point> vecV{ Point(0, 0), Point(1, 1), Point(2, 2) };
+    Vector<Point> vecV{ Point(0, 0), Point(1, 1), Point(2, 2), Point(2, 4), Point(4, 2)};
     vecV.print();
 
     cout << "\nCalculate & print (int+double)/long:" << endl;
