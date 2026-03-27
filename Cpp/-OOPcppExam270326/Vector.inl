@@ -66,6 +66,11 @@ void Vector<T>::print() const {
     std::cout << std::endl;
 }
 
+template <>
+inline void Vector<Point>::print() const {
+    std::cout << "Number of points: " << size << std::endl;
+}
+
 template <typename T>
 void calculateAndPrint(Vector<T>& vec, int i, double d, long l) {
     if (l == 0) {

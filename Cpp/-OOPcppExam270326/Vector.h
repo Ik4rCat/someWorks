@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+class Point;
+
 template <typename T>
 class Vector {
 private:

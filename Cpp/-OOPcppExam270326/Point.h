@@ -8,6 +8,7 @@ private:
     double y;
     
 public:
+    Point();
     Point(double xVal, double yVal);
     ~Point();
     
