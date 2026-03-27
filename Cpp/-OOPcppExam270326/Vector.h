@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <type_traits>
 
 class Point;
 
@@ -8,8 +9,7 @@ template <typename T>
 class Vector {
 private:
     T* data;
-    size_t size;
-    size_t capacity;
+    size_t size_;
 
 public:
     Vector();
@@ -20,9 +20,8 @@ public:
 
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
-    size_t getSize() const;
+    size_t size() const;
 
-    size_t getCapacity() const;
     bool empty() const;
     void resize(size_t newSize);
     void push(const T& value);
@@ -32,7 +31,7 @@ public:
     void print() const;
 };
 
-template <typename T>
-void calculateAndPrint(Vector<T>& vec, int i, double d, long l);
+template <typename Elem, typename I, typename D, typename L>
+void calculateAndPrint(Vector<Elem>& vec, I i, D d, L l);
 
 #include "Vector.inl"

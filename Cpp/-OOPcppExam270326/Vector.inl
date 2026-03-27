@@ -1,21 +1,17 @@
 
 
 template <typename T>
-Vector<T>::Vector() : data(nullptr), size(0), capacity(0) {}
+Vector<T>::Vector() : data(nullptr), size_(0) {}
 
 template <typename T>
-Vector<T>::Vector(size_t n) : data(nullptr), size(n), capacity(n) {
-    if (capacity > 0) {
-        data = new T[capacity]();
-    } else {
-        data = nullptr;
-    }
+Vector<T>::Vector(size_t n) : data(nullptr), size_(n) {
+    data = (size_ > 0) ? new T[size_]() : nullptr;
 }
 
 template <typename T>
-Vector<T>::Vector(std::initializer_list<T> list) : data(nullptr), size(list.size()), capacity(list.size()) {
-    if (size > 0) {
-        data = new T[capacity];
+Vector<T>::Vector(std::initializer_list<T> list) : data(nullptr), size_(list.size()) {
+    if (size_ > 0) {
+        data = new T[size_];
         size_t count = 0;
         for (const auto& val : list) {
             data[count++] = val;
@@ -26,10 +22,10 @@ Vector<T>::Vector(std::initializer_list<T> list) : data(nullptr), size(list.size
 }
 
 template <typename T>
-Vector<T>::Vector(const Vector& other) : data(nullptr), size(other.size), capacity(other.capacity) {
-    if (capacity > 0) {
-        data = new T[capacity];
-        for (size_t i = 0; i < size; ++i) {
+Vector<T>::Vector(const Vector& other) : data(nullptr), size_(other.size_) {
+    if (size_ > 0) {
+        data = new T[size_];
+        for (size_t i = 0; i < size_; ++i) {
             data[i] = other.data[i];
         }
     } else {
@@ -43,11 +39,6 @@ Vector<T>::~Vector() {
 }
 
 template <typename T>
-size_t Vector<T>::getCapacity() const {
-    return capacity;
-}
-
-template <typename T>
 T& Vector<T>::operator[](size_t index) {
     return data[index];
 }
@@ -58,71 +49,50 @@ const T& Vector<T>::operator[](size_t index) const {
 }
 
 template <typename T>
-size_t Vector<T>::getSize() const {
-    return size;
+size_t Vector<T>::size() const {
+    return size_;
 }
 
 template <typename T>
 bool Vector<T>::empty() const {
-    return size == 0;
+    return size_ == 0;
 }
 
 template <typename T>
 void Vector<T>::resize(size_t newSize) {
-    if (newSize <= capacity) {
-        if (newSize > size) {
-            for (size_t i = size; i < newSize; ++i) {
-                data[i] = T();
-            }
-        }
-        size = newSize;
-        return;
-    }
-
-    size_t newCapacity = capacity == 0 ? 1 : capacity;
-    while (newCapacity < newSize) {
-        newCapacity *= 2;
-    }
-
-    T* newData = new T[newCapacity]();
-    for (size_t i = 0; i < size; ++i) {
+    T* newData = (newSize > 0) ? new T[newSize]() : nullptr;
+    const size_t copyCount = (newSize < size_) ? newSize : size_;
+    for (size_t i = 0; i < copyCount; ++i) {
         newData[i] = data[i];
     }
     delete[] data;
     data = newData;
-    capacity = newCapacity;
-    size = newSize;
+    size_ = newSize;
 }
 
 template <typename T>
 void Vector<T>::push(const T& value) {
-    if (size == capacity) {
-        resize(size + 1);
-        data[size - 1] = value;
-        return;
-    }
-    data[size++] = value;
+    const size_t oldSize = size_;
+    resize(size_ + 1);
+    data[oldSize] = value;
 }
 
 template <typename T>
 void Vector<T>::pop() {
-    if (size == 0) {
+    if (size_ == 0) {
         return;
     }
-    --size;
+    resize(size_ - 1);
 }
 
 template <typename T>
 void Vector<T>::insert(size_t index, const T& value) {
-    if (index > size) {
+    if (index > size_) {
         return;
     }
-    if (size == capacity) {
-        resize(size + 1);
-    } else {
-        ++size;
-    }
-    for (size_t i = size - 1; i > index; --i) {
+    const size_t oldSize = size_;
+    resize(size_ + 1);
+    for (size_t i = oldSize; i > index; --i) {
         data[i] = data[i - 1];
     }
     data[index] = value;
@@ -131,26 +101,34 @@ void Vector<T>::insert(size_t index, const T& value) {
 template <typename T>
 void Vector<T>::print() const {
     std::cout << "Vector elements:";
-    for (size_t i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size_; ++i) {
         std::cout << " " << data[i];
     }
     std::cout << std::endl;
 }
 
-template <>
-inline void Vector<Point>::print() const {
-    std::cout << "Number of points: " << size << std::endl;
-}
+template <typename Elem, typename I, typename D, typename L>
+void calculateAndPrint(Vector<Elem>& vec, I i, D d, L l) {
+    static_assert(std::is_same_v<std::decay_t<I>, int> &&
+                  std::is_same_v<std::decay_t<D>, double> &&
+                  std::is_same_v<std::decay_t<L>, long>,
+                 "calculateAndPrint: разрешены только (int, double, long)");
 
-template <typename T>
-void calculateAndPrint(Vector<T>& vec, int i, double d, long l) {
     if (l == 0) {
         std::cout << -1 << std::endl;
         return;
     }
-    double result = (static_cast<double>(i) + d) / static_cast<double>(l);
-    size_t index = static_cast<size_t>(result);
-    if (index < vec.getSize()) {
+
+    const long double result =
+        (static_cast<long double>(i) + static_cast<long double>(d)) / static_cast<long double>(l);
+
+    if (result < 0) {
+        std::cout << -1 << std::endl;
+        return;
+    }
+
+    const size_t index = static_cast<size_t>(result);
+    if (index < vec.size()) {
         std::cout << vec[index] << std::endl;
     } else {
         std::cout << -1 << std::endl;

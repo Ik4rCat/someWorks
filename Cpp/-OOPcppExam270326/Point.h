@@ -13,6 +13,8 @@ public:
     ~Point();
     
     void show() const;
+
+    friend std::ostream& operator<<(std::ostream& os, const Point& p);
 };
 
 #include "Point.inl"

@@ -13,8 +13,7 @@ int main()
     vecI.print();
 
     cout << "empty: " << (vecI.empty() ? "true" : "false") << endl;
-    cout << "size: " << vecI.getSize() << endl;
-    cout << "capacity: " << vecI.getCapacity() << endl;
+    cout << "size: " << vecI.size() << endl;
 
     vecI.push(6);
     cout << "after push(6): " << endl;
@@ -43,8 +42,6 @@ int main()
     cout << "\nstring vector: " << endl;
     Vector<string> vecIII{ " ", "funny", "Vector", "task", "Point class With <3"};
     vecIII.print();
-    cout << vecIII[1] << vecIII[0] << vecIII[2] << vecIII[0] << vecIII[3] << endl;
-    cout << vecIII[4] << endl;
 
     cout << "\nfloat vector: " << endl;
     Vector<float> vecIV { 3.143, 3.154, 3.165 };
@@ -55,8 +52,8 @@ int main()
     vecV.print();
 
     cout << "\nCalculate & print (int+double)/long:" << endl;
-    calculateAndPrint(vecI, 1, 2.0, 1);
-    calculateAndPrint(vecI, 10, 0.0, 1);
+    calculateAndPrint(vecI, 1, 2.0, 2L);
+    calculateAndPrint(vecI, 10, 0.0, 1L);
 
     cout << endl;
     Point p(10.0, 20.0);
