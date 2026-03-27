@@ -9,6 +9,7 @@ class Vector {
 private:
     T* data;
     size_t size;
+    size_t capacity;
 
 public:
     Vector();
@@ -20,6 +21,13 @@ public:
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
     size_t getSize() const;
+
+    size_t getCapacity() const;
+    bool empty() const;
+    void resize(size_t newSize);
+    void push(const T& value);
+    void pop();
+    void insert(size_t index, const T& value);
 
     void print() const;
 };

@@ -12,6 +12,26 @@ int main()
     Vector<int> vecI{ 1, 2, 3, 4, 5 };
     vecI.print();
 
+    cout << "empty: " << (vecI.empty() ? "true" : "false") << endl;
+    cout << "size: " << vecI.getSize() << endl;
+    cout << "capacity: " << vecI.getCapacity() << endl;
+
+    vecI.push(6);
+    cout << "after push(6): " << endl;
+    vecI.print();
+
+    vecI.pop();
+    cout << "after pop(): " << endl;
+    vecI.print();
+
+    vecI.insert(2, 99);
+    cout << "after insert(2, 99): " << endl;
+    vecI.print();
+
+    vecI.resize(3);
+    cout << "after resize(3): " << endl;
+    vecI.print();
+
     cout << "\ndouble vector: " << endl;
     Vector<double> vecII(3);
     vecII[0] = 1.5;

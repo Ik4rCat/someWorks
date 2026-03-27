@@ -1,21 +1,21 @@
 
 
 template <typename T>
-Vector<T>::Vector() : data(nullptr), size(0) {}
+Vector<T>::Vector() : data(nullptr), size(0), capacity(0) {}
 
 template <typename T>
-Vector<T>::Vector(size_t n) : size(n) {
-    if (n > 0) {
-        data = new T[n]();
+Vector<T>::Vector(size_t n) : data(nullptr), size(n), capacity(n) {
+    if (capacity > 0) {
+        data = new T[capacity]();
     } else {
         data = nullptr;
     }
 }
 
 template <typename T>
-Vector<T>::Vector(std::initializer_list<T> list) : size(list.size()) {
+Vector<T>::Vector(std::initializer_list<T> list) : data(nullptr), size(list.size()), capacity(list.size()) {
     if (size > 0) {
-        data = new T[size];
+        data = new T[capacity];
         size_t count = 0;
         for (const auto& val : list) {
             data[count++] = val;
@@ -26,9 +26,9 @@ Vector<T>::Vector(std::initializer_list<T> list) : size(list.size()) {
 }
 
 template <typename T>
-Vector<T>::Vector(const Vector& other) : size(other.size) {
-    if (size > 0) {
-        data = new T[size];
+Vector<T>::Vector(const Vector& other) : data(nullptr), size(other.size), capacity(other.capacity) {
+    if (capacity > 0) {
+        data = new T[capacity];
         for (size_t i = 0; i < size; ++i) {
             data[i] = other.data[i];
         }
@@ -40,6 +40,11 @@ Vector<T>::Vector(const Vector& other) : size(other.size) {
 template <typename T>
 Vector<T>::~Vector() {
     delete[] data;
+}
+
+template <typename T>
+size_t Vector<T>::getCapacity() const {
+    return capacity;
 }
 
 template <typename T>
@@ -55,6 +60,72 @@ const T& Vector<T>::operator[](size_t index) const {
 template <typename T>
 size_t Vector<T>::getSize() const {
     return size;
+}
+
+template <typename T>
+bool Vector<T>::empty() const {
+    return size == 0;
+}
+
+template <typename T>
+void Vector<T>::resize(size_t newSize) {
+    if (newSize <= capacity) {
+        if (newSize > size) {
+            for (size_t i = size; i < newSize; ++i) {
+                data[i] = T();
+            }
+        }
+        size = newSize;
+        return;
+    }
+
+    size_t newCapacity = capacity == 0 ? 1 : capacity;
+    while (newCapacity < newSize) {
+        newCapacity *= 2;
+    }
+
+    T* newData = new T[newCapacity]();
+    for (size_t i = 0; i < size; ++i) {
+        newData[i] = data[i];
+    }
+    delete[] data;
+    data = newData;
+    capacity = newCapacity;
+    size = newSize;
+}
+
+template <typename T>
+void Vector<T>::push(const T& value) {
+    if (size == capacity) {
+        resize(size + 1);
+        data[size - 1] = value;
+        return;
+    }
+    data[size++] = value;
+}
+
+template <typename T>
+void Vector<T>::pop() {
+    if (size == 0) {
+        return;
+    }
+    --size;
+}
+
+template <typename T>
+void Vector<T>::insert(size_t index, const T& value) {
+    if (index > size) {
+        return;
+    }
+    if (size == capacity) {
+        resize(size + 1);
+    } else {
+        ++size;
+    }
+    for (size_t i = size - 1; i > index; --i) {
+        data[i] = data[i - 1];
+    }
+    data[index] = value;
 }
 
 template <typename T>
