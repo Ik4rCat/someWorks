@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_CounterApp_FILE /home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CounterApp)
+set(__QT_DEPLOY_TARGET_CounterApp_TYPE EXECUTABLE)

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wl,--dependency-file=CMakeFiles/INOutTest.dir/link.d CMakeFiles/INOutTest.dir/INOutTest_autogen/mocs_compilation.cpp.o CMakeFiles/INOutTest.dir/main.cpp.o CMakeFiles/INOutTest.dir/window.cpp.o -o INOutTest  /usr/lib/libQt6Widgets.so.6.10.2 /usr/lib/libQt6Gui.so.6.10.2 /usr/lib/libGLX.so /usr/lib/libOpenGL.so /usr/lib/libQt6Core.so.6.10.2

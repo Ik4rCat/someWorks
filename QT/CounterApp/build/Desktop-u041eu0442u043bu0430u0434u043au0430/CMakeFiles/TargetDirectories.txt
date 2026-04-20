@@ -1,0 +1,9 @@
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/CounterApp.dir
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/edit_cache.dir
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/rebuild_cache.dir
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/list_install_components.dir
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/install.dir
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/install/local.dir
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/install/strip.dir
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/CounterApp_autogen_timestamp_deps.dir
+/home/altemma/projects/QT/CounterApp/build/Desktop-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/CounterApp_autogen.dir

@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_INOutTest_FILE /home/altemma/projects/QT/INOutTest/build/Desktop-u041eu0442u043bu0430u0434u043au0430/INOutTest)
+set(__QT_DEPLOY_TARGET_INOutTest_TYPE EXECUTABLE)
