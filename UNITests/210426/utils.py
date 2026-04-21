@@ -1,5 +1,4 @@
-from utils import division
-
-def test():
-    assert division(10,2) == 5
-
+def division(a: float, b: float) -> float:
+    if b == 0:
+        raise ValueError("Division by zero is not allowed")
+    return a / b
