@@ -1,10 +1,7 @@
-from pathlib import Path
-import sys
-
-sys.path.append(str(Path(__file__).resolve().parents[1]))
-
 from utils import division
 
+
+@pytest
 
 def test_division_success():
     assert division(10, 2) == 5
