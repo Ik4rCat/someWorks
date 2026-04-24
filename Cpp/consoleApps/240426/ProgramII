@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+
+void reverse_string(std::string s) {
+    int n = s.length();
+    for (int i = 0; i < n; i++) {
+        std::swap(s[i], s[n - i - 1]);
+    }
+    std::cout << s << std::endl;
+}
+
+int main() {
+    std::string text = "hello";
+    reverse_string(text);
+    std::cout << text << std::endl;
+    return 0;
+}
