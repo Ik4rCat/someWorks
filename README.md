@@ -2,6 +2,18 @@
 Hi! In this repository you can see some works i made parallel to studies in college
 > enjoy!
 
+SomeWorks/
+├── cpp/
+│   └── qt/
+├── csharp/
+├── python/
+│   └── tests/
+├── _archive/
+├── .gitignore
+├── README.md
+├── CONTRIBUTING.md
+└── LICENSE
+
 ### author
 
 |   |   |

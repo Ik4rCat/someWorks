@@ -42,6 +42,29 @@
 *.idb
 *.pdb
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# C# / .NET
+bin/
+obj/
+*.user
+*.suo
+
+# Qt
+*.pro.user
+moc_*
+ui_*
+qrc_*
+
+# CMake (у тебя его много по статистике)
+build/
+CMakeCache.txt
+CMakeFiles/
+
 # Kernel Module Compile Results
 *.mod*
 *.cmd
