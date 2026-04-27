@@ -2,7 +2,8 @@
 Hi! In this repository you can see some works i made parallel to studies in college
 > enjoy!
 
-SomeWorks/
+```
+SomeWorks/ 
 ├── cpp/
 │   └── qt/
 ├── csharp/
@@ -13,6 +14,7 @@ SomeWorks/
 ├── README.md
 ├── CONTRIBUTING.md
 └── LICENSE
+```
 
 ### author
 
