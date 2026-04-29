@@ -1,34 +1,24 @@
-﻿class Program
+// Задание 1: количество чётных, нечётных, уникальных элементов массива
+
+class Program
 {
+    static int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 2, 4, 7 };
 
-    static int[] nums = new int[] {
-        1, 2, 3, 
-        4, 5, 6, 
-        7, 8, 9, 
-        10, 11, 12 };
-
-    public static bool NumChecker(int checkNum)
-    {
-        bool isEven;
-        
-        if (checkNum % 2 == 0) isEven = true;
-        else isEven = false;
-
-        return isEven;
-    }
-    
     public static void Main()
     {
-        for(int i =0 ; i < nums.Length; i++)
+        int evenCount = 0, oddCount = 0;
+        var unique = new HashSet<int>();
+
+        foreach (int n in nums)
         {
-            if (NumChecker(nums[i]))
-            {
-                Console.WriteLine($" num {nums[i]} - is even");    
-            }
-            else
-            {
-                Console.WriteLine($" num {nums[i]} - is not even");
-            }
+            if (n % 2 == 0) evenCount++;
+            else oddCount++;
+            unique.Add(n);
         }
+
+        Console.WriteLine($"Массив: [{string.Join(", ", nums)}]");
+        Console.WriteLine($"Чётных: {evenCount}");
+        Console.WriteLine($"Нечётных: {oddCount}");
+        Console.WriteLine($"Уникальных: {unique.Count}");
     }
 }

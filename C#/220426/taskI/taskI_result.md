@@ -1,16 +1,8 @@
 # taskI — результат выполнения
 
 ```
- num 1 - is not even
- num 2 - is even
- num 3 - is not even
- num 4 - is even
- num 5 - is not even
- num 6 - is even
- num 7 - is not even
- num 8 - is even
- num 9 - is not even
- num 10 - is even
- num 11 - is not even
- num 12 - is even
+Массив: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 2, 4, 7]
+Чётных: 7
+Нечётных: 8
+Уникальных: 12
 ```
