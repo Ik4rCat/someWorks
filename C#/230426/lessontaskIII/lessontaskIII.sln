@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lessontaskIII", "lessontaskIII\lessontaskIII.csproj", "{ACE8D6F3-FCE0-4554-BE04-07F8C79692F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACE8D6F3-FCE0-4554-BE04-07F8C79692F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE8D6F3-FCE0-4554-BE04-07F8C79692F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE8D6F3-FCE0-4554-BE04-07F8C79692F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE8D6F3-FCE0-4554-BE04-07F8C79692F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
