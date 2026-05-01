@@ -57,20 +57,23 @@ class Order
     }
 }
 
-//class PhysicalOrder : Order
-//{
-    //public PhysicalOrder(string newName, int newPrice, ) : base(newName, )
-//}
+class PhysicalOrder : Order
+{
+    public PhysicalOrder(string newName, int newPrice, int itemCounts) : base(newName, newPrice, itemCounts,
+        typeof(PhysicalOrder)) {}
+}
 
-//class DigitalOrder : Order
-//{
-    
-//}
+class DigitalOrder : Order
+{
+    public DigitalOrder(string newName, int newPrice, int itemCounts) : base(newName, newPrice, itemCounts, 
+        typeof(DigitalOrder)) {}
+}
 
-//class GiftOrder : Order
-//{
-    
-//}
+class GiftOrder : Order
+{
+    public GiftOrder(string newName, int newPrice, int itemCounts) : base(newName, newPrice, itemCounts, 
+        typeof(GiftOrder)) {}
+}
 
 
 
