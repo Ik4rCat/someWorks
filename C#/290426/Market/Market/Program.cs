@@ -1,102 +1,136 @@
 
 class Order
 {
-    private static List<Order> _orders = new();
+    private static readonly List<Order> _trackedOrders = new();
 
-    public string Name { get; private set; }
-    public int BasePrice { get; private set; }
-    public int ItemPrice { get; private set; }
-    public int ItemsCount { get; private set; }
-    public Type OrderType { get; private set; }
-    public decimal FinalPrice { get; private set; }
+    public static int TotalOrders => _trackedOrders.Count;
+    public static decimal TotalRevenue => _trackedOrders.Sum(o => o.GetFinalPrice());
 
-    public Order(string name, int price, int itemsCount, Type orderType)
+    public decimal BasePrice { get; protected set; }
+    protected decimal _discountAmount = 0;
+
+    protected Order(decimal basePrice, bool track = true)
     {
-        Name = name;
-        BasePrice = price * itemsCount;
-        ItemPrice = price;
-        ItemsCount = itemsCount;
-        OrderType = orderType;
-        FinalPrice = BasePrice;
-        _orders.Add(this);
+        BasePrice = basePrice;
+        if (track) _trackedOrders.Add(this);
     }
 
-    public virtual decimal GetFinalPrice() => FinalPrice;
+    public virtual decimal GetFinalPrice() => System.Math.Max(0, BasePrice - _discountAmount);
 
     public virtual string GetStatus() =>
-        $"[{OrderType.Name}] {Name} | {ItemsCount}x{ItemPrice} = {BasePrice} | Final: {FinalPrice:F2}";
+        $"{GetType().Name} | Base: {BasePrice} | Final: {GetFinalPrice()}";
 
-    // discount by percent
     public void ApplyDiscount(int percent)
     {
         if (percent < 0 || percent > 100) return;
-        FinalPrice = BasePrice * (1 - percent / 100m);
+        _discountAmount = BasePrice * percent / 100m;
     }
 
-    // discount by percent with loyalty bonus (+5%)
     public void ApplyDiscount(int percent, bool loyalty)
     {
-        int effective = loyalty ? Math.Min(percent + 5, 100) : percent;
+        int effective = loyalty ? System.Math.Min(percent + 5, 100) : percent;
         ApplyDiscount(effective);
     }
 
-    // discount by fixed amount
     public void ApplyDiscount(decimal fixedAmount)
     {
-        FinalPrice = Math.Max(0, FinalPrice - fixedAmount);
+        _discountAmount = System.Math.Max(0, fixedAmount);
     }
 
-    public static void TotalOrders() =>
-        Console.WriteLine($"Total orders: {_orders.Count}");
-
-    public static void TotalRevenue() =>
-        Console.WriteLine($"Total revenue: {_orders.Sum(o => o.FinalPrice):F2}");
+    public static Order operator +(Order a, Order b) =>
+        new Order(a.GetFinalPrice() + b.GetFinalPrice(), track: false);
 }
 
 class PhysicalOrder : Order
 {
-    public PhysicalOrder(string newName, int newPrice, int itemCounts) : base(newName, newPrice, itemCounts,
-        typeof(PhysicalOrder)) {}
+    private const decimal DeliveryFee = 200;
+    public decimal Weight { get; }
+
+    public PhysicalOrder(decimal basePrice, decimal weight = 1) : base(basePrice)
+    {
+        Weight = weight;
+    }
+
+    // Discount depends on weight: heavier items get less discount
+    public new void ApplyDiscount(int percent)
+    {
+        decimal effective = percent / (1 + Weight * 0.05m);
+        _discountAmount = Math.Round(BasePrice * effective / 100m, 2);
+    }
+
+    public override decimal GetFinalPrice() =>
+        System.Math.Max(0, BasePrice + DeliveryFee - _discountAmount);
+
+    public override string GetStatus() =>
+        $"PhysicalOrder | Base: {BasePrice} + Delivery: {DeliveryFee} | Final: {GetFinalPrice()}";
 }
 
 class DigitalOrder : Order
 {
-    public DigitalOrder(string newName, int newPrice, int itemCounts) : base(newName, newPrice, itemCounts,
-        typeof(DigitalOrder)) {}
+    public DigitalOrder(decimal basePrice) : base(basePrice) { }
+
+    // No delivery; fixed discount (fixed amount)
+    public new void ApplyDiscount(decimal fixedAmount)
+    {
+        _discountAmount = fixedAmount;
+    }
+
+    public override string GetStatus() =>
+        $"DigitalOrder | Base: {BasePrice} | Final: {GetFinalPrice()}";
 }
 
 class GiftOrder : Order
 {
-    public GiftOrder(string newName, int newPrice, int itemCounts) : base(newName, newPrice, itemCounts,
-        typeof(GiftOrder)) {}
+    private const decimal PackagingFee = 100;
+
+    public GiftOrder(decimal basePrice) : base(basePrice) { }
+
+    // Increased discount: +10% bonus on top
+    public new void ApplyDiscount(int percent)
+    {
+        int effective = System.Math.Min(percent + 10, 100);
+        _discountAmount = (BasePrice + PackagingFee) * effective / 100m;
+    }
+
+    public override decimal GetFinalPrice() =>
+        System.Math.Max(0, BasePrice + PackagingFee - _discountAmount);
+
+    public override string GetStatus() =>
+        $"GiftOrder | Base: {BasePrice} + Packaging: {PackagingFee} | Final: {GetFinalPrice()}";
 }
-
-
 
 class Program
 {
     public static void Main()
     {
-        var physical = new PhysicalOrder("Laptop", 1000, 2);
-        var digital = new DigitalOrder("Game", 60, 3);
-        var gift = new GiftOrder("Book", 25, 5);
+        // PhysicalOrder: 1000 base + 200 delivery = 1200
+        // DigitalOrder:  90 base, no delivery = 90
+        // GiftOrder:     1400 base + 100 packaging = 1500
+        var physical = new PhysicalOrder(1000);
+        var digital  = new DigitalOrder(90);
+        var gift     = new GiftOrder(1400);
 
-        Console.WriteLine("=== Orders ===");
-        Console.WriteLine(physical.GetStatus());
-        Console.WriteLine(digital.GetStatus());
-        Console.WriteLine(gift.GetStatus());
+        Console.WriteLine($"Physical order final price: {physical.GetFinalPrice()}");
+        Console.WriteLine($"Digital order final price: {digital.GetFinalPrice()}");
+        Console.WriteLine($"Gift order final price: {gift.GetFinalPrice()}");
+        Console.WriteLine();
 
-        Console.WriteLine("\n=== Applying Discounts ===");
-        physical.ApplyDiscount(10);                 // -10%
-        digital.ApplyDiscount(20, loyalty: true);   // -25% (20+5 loyalty)
-        gift.ApplyDiscount(30m);                    // -30 fixed
+        // Сложение заказов через + (до скидок)
+        Order combined = physical + digital + gift;
+        Console.WriteLine($"Combined order total: {combined.GetFinalPrice()}");
+        Console.WriteLine();
 
-        Console.WriteLine(physical.GetStatus());
-        Console.WriteLine(digital.GetStatus());
-        Console.WriteLine(gift.GetStatus());
+        Console.WriteLine($"Total orders: {Order.TotalOrders}");
+        Console.WriteLine($"Total revenue: {Order.TotalRevenue}");
 
-        Console.WriteLine("\n=== Summary ===");
-        Order.TotalOrders();
-        Order.TotalRevenue();
+        // Демонстрация ApplyDiscount через базовый тип и конкретные типы
+        Console.WriteLine();
+        physical.ApplyDiscount(10);             // зависит от веса
+        digital.ApplyDiscount(5m);              // фиксированная сумма
+        gift.ApplyDiscount(5, loyalty: true);   // увеличенная + loyalty
+
+        Order[] allOrders = { physical, digital, gift };
+        foreach (Order o in allOrders)          // GetFinalPrice() через базовый тип
+            Console.WriteLine(o.GetStatus());
     }
 }
