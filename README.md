@@ -6,6 +6,9 @@ Hi! In this repository you can see some works i made parallel to studies in coll
 SomeWorks/ 
 ├── cpp/
 │   └── qt/
+├── developmentOfSoftwareModules
+│   └── delays/
+│   └── completedOnTime/
 ├── csharp/
 ├── python/
 │   └── tests/
