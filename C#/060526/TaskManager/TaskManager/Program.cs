@@ -33,7 +33,7 @@ class Program
         
         for (int i = 0; i < tasks.Count; i++)
         {
-            Console.WriteLine(tasks[i].Name);
+            Console.WriteLine($"[{tasks[i].Priority}] {tasks[i].Name}");
         }
     } 
 }
