@@ -35,6 +35,16 @@ class Program
         {
             Console.WriteLine($"[{tasks[i].Priority}] {tasks[i].Name}");
         }
+        
+        Console.WriteLine("");
+        Console.WriteLine("удаляю все срочные задачи (допустим выполнены)");
+        tasks.RemoveAll(t => t.Name.Contains("Срочно"));
+        
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            Console.WriteLine($"[{tasks[i].Priority}] {tasks[i].Name}");
+        }
+        
     } 
 }
 
