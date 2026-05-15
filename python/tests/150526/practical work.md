@@ -60,7 +60,7 @@ def test_count_words_raises_on_non_string():
 
 ### Скриншот запуска тестов
 
-![[Pasted image 20260515132416.png]]
+![count_words tests](imgs/Pasted%20image%2020260515132416.png)
 
 ---
 
@@ -133,7 +133,7 @@ def test_factorial_raises_on_float():
 
 ### Скриншот запуска тестов
 
-![[Pasted image 20260515132338.png]]
+![factorial tests](imgs/Pasted%20image%2020260515132338.png)
 
 ---
 
@@ -199,7 +199,7 @@ def test_is_strong_password_raises_on_non_string():
 
 ### Скриншот запуска тестов
 
-![[Pasted image 20260515132304.png]]
+![password tests](imgs/Pasted%20image%2020260515132304.png)
 
 ---
 
@@ -273,7 +273,7 @@ def test_is_valid_email_raises_on_non_string():
 
 ### Скриншот запуска тестов
 
-![[Pasted image 20260515132204.png]]
+![email tests](imgs/Pasted%20image%2020260515132204.png)
 
 ---
 
@@ -281,7 +281,7 @@ def test_is_valid_email_raises_on_non_string():
 
 ### Скриншот полного запуска
 
-![[Pasted image 20260515132016.png]]
+![all tests](imgs/Pasted%20image%2020260515132016.png)
 
 | Показатель | Значение |
 |---|---|
