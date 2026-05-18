@@ -13,7 +13,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 add_executable(my_tests tests/my_test.cpp)
-target_link_libraries(my_tests GTest::gtest_main)
+target_link_libraries(my_tests GTest::gtest_main 180526)
 
 include(GoogleTest)
 gtest_discover_tests(my_tests)
