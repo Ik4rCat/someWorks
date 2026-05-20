@@ -1,3 +1,4 @@
+```
 [==========] Running 17 tests from 5 test suites.
 [----------] Global test environment set-up.
 [----------] 1 test from AvgTest
@@ -52,3 +53,4 @@
 [----------] Global test environment tear-down
 [==========] 17 tests from 5 test suites ran. (0 ms total)
 [  PASSED  ] 17 tests.
+```
