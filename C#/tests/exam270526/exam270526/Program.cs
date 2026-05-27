@@ -19,7 +19,7 @@ class Program
     public static void Main()
     {
         Console.WriteLine("Write num: ");
-        CheckIsRealN(Console.ReadLine());
+        CheckIsRealN(int.Parse(Console.ReadLine()));
         
     }
 }
