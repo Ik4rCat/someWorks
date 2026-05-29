@@ -1,0 +1,15 @@
+## Build artifacts
+bin/
+obj/
+
+## IDE
+.idea/
+.vs/
+*.user
+
+## Database files
+*.db
+*.sqlite
+*.sqlite3
+appsettings.local.json
+appsettings.Development.json
