@@ -2,7 +2,7 @@ using Npgsql;
 using System.Data;
 using System.Text;
 
-const string CONN_STR = "Host=localhost;Port=5432;Database=lab9db;Username=lab9user;Password=lab9pass;Pooling=false;";
+const string CONN_STR = "Host=localhost;Port=5432;Database=smiling_academy;Username=smiley;Password=happiness123;Pooling=false;";
 
 string TblStr(DataTable t)
 {
@@ -32,16 +32,21 @@ DataTable Load()
             Name    VARCHAR(50) NOT NULL,
             Surname VARCHAR(50) NOT NULL,
             Age     INTEGER     NOT NULL,
-            "Group" VARCHAR(20) NOT NULL,
+            "Group" VARCHAR(60) NOT NULL,
             Kurs    INTEGER     NOT NULL,
             UNIQUE(Name, Surname)
         );
         INSERT INTO "Студенты"(Name, Surname, Age, "Group", Kurs) VALUES
-            ('Иван',    'Петров',    19, 'РПО-1', 1),
-            ('Мария',   'Сидорова',  20, 'РПО-1', 1),
-            ('Алексей', 'Козлов',    21, 'РПО-2', 2),
-            ('Ольга',   'Иванова',   22, 'РПО-2', 2),
-            ('Дмитрий', 'Фролов',    20, 'РПО-3', 3);
+            ('Charlie',  'Dawson',    25,  'Базовое Счастье',             1),
+            ('Pim',      'Simmons',   24,  'Базовое Счастье',             1),
+            ('Alan',     'Stein',     30,  'Продвинутое Осчастливливание', 2),
+            ('Glover',   'Portis',    28,  'Продвинутое Осчастливливание', 2),
+            ('Shrimp',   'Saunders',  19,  'Базовое Счастье',             1),
+            ('Desmond',  'Jenkins',  412,  'Работа с Тяжёлыми Случаями',  3),
+            ('Poppy',    'Wheeler',   22,  'Продвинутое Осчастливливание', 2),
+            ('Satan',    'Himself',  666,  'Работа с Тяжёлыми Случаями',  4),
+            ('Tugger',   'McManus',   35,  'Работа с Тяжёлыми Случаями',  3),
+            ('Amanda',   'Beach',     27,  'Базовое Счастье',             1);
         """, c);
     cmd.ExecuteNonQuery();
 }
@@ -63,7 +68,7 @@ DataTable Load()
             p_name    VARCHAR(50),
             p_surname VARCHAR(50),
             p_age     INTEGER,
-            p_group   VARCHAR(20),
+            p_group   VARCHAR(60),
             p_kurs    INTEGER
         )
         AS $$
@@ -111,10 +116,10 @@ DataTable before2 = Load();
     using var c = new NpgsqlConnection(CONN_STR); c.Open();
     using var cmd = new NpgsqlCommand(
         @"CALL add_student(@p_name, @p_surname, @p_age, @p_group, @p_kurs)", c);
-    cmd.Parameters.AddWithValue("p_name",    "Екатерина");
-    cmd.Parameters.AddWithValue("p_surname", "Волкова");
-    cmd.Parameters.AddWithValue("p_age",     20);
-    cmd.Parameters.AddWithValue("p_group",   "РПО-1");
+    cmd.Parameters.AddWithValue("p_name",    "Bliss");
+    cmd.Parameters.AddWithValue("p_surname", "O'Happiness");
+    cmd.Parameters.AddWithValue("p_age",     23);
+    cmd.Parameters.AddWithValue("p_group",   "Базовое Счастье");
     cmd.Parameters.AddWithValue("p_kurs",    1);
     cmd.ExecuteNonQuery();
 }
@@ -131,20 +136,20 @@ int totalStudents;
 // ── Вывод ─────────────────────────────────────────────────────────────────
 var out_ = new StringBuilder();
 
-out_.AppendLine("=== Начальное состояние таблицы Студенты ===");
+out_.AppendLine("=== Smiling Friends Academy — начальный состав ===");
 out_.Append(TblStr(initState));
 
 out_.AppendLine("\n=== Задание 1: count_students_on_kurs ===");
-out_.AppendLine($"  Курс 1: {countKurs1} студент(ов)");
-out_.AppendLine($"  Курс 2: {countKurs2} студент(ов)");
-out_.AppendLine($"  Курс 3: {countKurs3} студент(ов)");
+out_.AppendLine($"  Курс 1 (Базовое Счастье):              {countKurs1} студент(ов)");
+out_.AppendLine($"  Курс 2 (Продвинутое Осчастливливание): {countKurs2} студент(ов)");
+out_.AppendLine($"  Курс 3 (Работа с Тяжёлыми Случаями):  {countKurs3} студент(ов)");
 
-out_.AppendLine("\n=== Задание 2: add_student (до) ===");
+out_.AppendLine("\n=== Задание 2: add_student — зачислить нового студента (до) ===");
 out_.Append(TblStr(before2));
-out_.AppendLine("=== Задание 2: add_student (после) ===");
+out_.AppendLine("=== Задание 2: add_student — зачислить нового студента (после) ===");
 out_.Append(TblStr(after2));
 
 out_.AppendLine("\n=== Задание 3: get_total_students ===");
-out_.AppendLine($"  Всего студентов в таблице: {totalStudents}");
+out_.AppendLine($"  Всего студентов в Академии: {totalStudents}");
 
 Console.Write(out_.ToString());
