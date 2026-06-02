@@ -103,11 +103,17 @@ int countKurs1, countKurs2, countKurs3;
     using var c = new NpgsqlConnection(CONN_STR); c.Open();
     using var cmd = new NpgsqlCommand("SELECT count_students_on_kurs(@p_kurs)", c);
     cmd.Parameters.AddWithValue("p_kurs", 1);
-    countKurs1 = (int)cmd.ExecuteScalar()!;
+    var resultPar1 = new NpgsqlParameter("result", NpgsqlDbType.Integer);
+    resultPar1.Direction = ParameterDirection.Output;
+    cmd.Parameters.Add(resultPar1);
+    cmd.ExecuteNonQuery();
+    countKurs1 = (int)resultPar1.Value!;
     cmd.Parameters["p_kurs"].Value = 2;
-    countKurs2 = (int)cmd.ExecuteScalar()!;
+    cmd.ExecuteNonQuery();
+    countKurs2 = (int)resultPar1.Value!;
     cmd.Parameters["p_kurs"].Value = 3;
-    countKurs3 = (int)cmd.ExecuteScalar()!;
+    cmd.ExecuteNonQuery();
+    countKurs3 = (int)resultPar1.Value!;
 }
 
 // ── Задание 2: add_student ────────────────────────────────────────────────
@@ -130,7 +136,11 @@ int totalStudents;
 {
     using var c = new NpgsqlConnection(CONN_STR); c.Open();
     using var cmd = new NpgsqlCommand("SELECT get_total_students()", c);
-    totalStudents = (int)cmd.ExecuteScalar()!;
+    var resultPar = new NpgsqlParameter("result", NpgsqlDbType.Integer);
+    resultPar.Direction = ParameterDirection.Output;
+    cmd.Parameters.Add(resultPar);
+    cmd.ExecuteNonQuery();
+    totalStudents = (int)resultPar.Value!;
 }
 
 // ── Вывод ─────────────────────────────────────────────────────────────────
