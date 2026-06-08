@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Dev\\CODE\\Lessons\\WindowForms\\WindowFormsLessonTaskPT3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{028B1657-B9A9-4539-A13A-23F0676AC793}|WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3.csproj|e:\\dev\\code\\lessons\\windowforms\\windowformslessontaskpt3\\windowformslessontaskpt3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{028B1657-B9A9-4539-A13A-23F0676AC793}|WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3.csproj|solutionrelative:windowformslessontaskpt3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{028B1657-B9A9-4539-A13A-23F0676AC793}|WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3.csproj|e:\\dev\\code\\lessons\\windowforms\\windowformslessontaskpt3\\windowformslessontaskpt3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{028B1657-B9A9-4539-A13A-23F0676AC793}|WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3.csproj|solutionrelative:windowformslessontaskpt3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{028B1657-B9A9-4539-A13A-23F0676AC793}|WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3.csproj|e:\\dev\\code\\lessons\\windowforms\\windowformslessontaskpt3\\windowformslessontaskpt3\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{028B1657-B9A9-4539-A13A-23F0676AC793}|WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3.csproj|solutionrelative:windowformslessontaskpt3\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\Dev\\CODE\\Lessons\\WindowForms\\WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3\\Form1.cs",
+              "RelativeDocumentMoniker": "WindowFormsLessonTaskPT3\\Form1.cs",
+              "ToolTip": "E:\\Dev\\CODE\\Lessons\\WindowForms\\WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3\\Form1.cs",
+              "RelativeToolTip": "WindowFormsLessonTaskPT3\\Form1.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA2wDYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T12:05:44.2Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "E:\\Dev\\CODE\\Lessons\\WindowForms\\WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "WindowFormsLessonTaskPT3\\Form1.Designer.cs",
+              "ToolTip": "E:\\Dev\\CODE\\Lessons\\WindowForms\\WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3\\Form1.Designer.cs",
+              "RelativeToolTip": "WindowFormsLessonTaskPT3\\Form1.Designer.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAqwF4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T13:17:16.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "E:\\Dev\\CODE\\Lessons\\WindowForms\\WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3\\Form1.cs",
+              "RelativeDocumentMoniker": "WindowFormsLessonTaskPT3\\Form1.cs",
+              "ToolTip": "E:\\Dev\\CODE\\Lessons\\WindowForms\\WindowFormsLessonTaskPT3\\WindowFormsLessonTaskPT3\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "WindowFormsLessonTaskPT3\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T12:05:30.224Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
