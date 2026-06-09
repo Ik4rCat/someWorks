@@ -43,7 +43,7 @@ namespace WindowsFormsLessonTask2
 
 ```
 
-###ChildForm
+### ChildForm
 ```
 using System;
 using System.Collections.Generic;
@@ -68,7 +68,7 @@ namespace WindowsFormsLessonTask2
 
 ```
 
-###SdiForm 
+### SdiForm 
 ```
 using System;
 using System.Windows.Forms;
