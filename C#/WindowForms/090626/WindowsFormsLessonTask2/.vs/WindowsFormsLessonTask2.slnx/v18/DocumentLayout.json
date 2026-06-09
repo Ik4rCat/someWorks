@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C23DE184-6D7D-4BE7-B553-D9D940FCBDE5}|WindowsFormsLessonTask2\\WindowsFormsLessonTask2.csproj|e:\\dev\\code\\lessons\\windowforms\\090626\\windowsformslessontask2\\windowsformslessontask2\\sdiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C23DE184-6D7D-4BE7-B553-D9D940FCBDE5}|WindowsFormsLessonTask2\\WindowsFormsLessonTask2.csproj|solutionrelative:windowsformslessontask2\\sdiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C23DE184-6D7D-4BE7-B553-D9D940FCBDE5}|WindowsFormsLessonTask2\\WindowsFormsLessonTask2.csproj|e:\\dev\\code\\lessons\\windowforms\\090626\\windowsformslessontask2\\windowsformslessontask2\\childform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C23DE184-6D7D-4BE7-B553-D9D940FCBDE5}|WindowsFormsLessonTask2\\WindowsFormsLessonTask2.csproj|solutionrelative:windowsformslessontask2\\childform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C23DE184-6D7D-4BE7-B553-D9D940FCBDE5}|WindowsFormsLessonTask2\\WindowsFormsLessonTask2.csproj|e:\\dev\\code\\lessons\\windowforms\\090626\\windowsformslessontask2\\windowsformslessontask2\\childform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C23DE184-6D7D-4BE7-B553-D9D940FCBDE5}|WindowsFormsLessonTask2\\WindowsFormsLessonTask2.csproj|solutionrelative:windowsformslessontask2\\childform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C23DE184-6D7D-4BE7-B553-D9D940FCBDE5}|WindowsFormsLessonTask2\\WindowsFormsLessonTask2.csproj|E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\windowsformslessontask2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C23DE184-6D7D-4BE7-B553-D9D940FCBDE5}|WindowsFormsLessonTask2\\WindowsFormsLessonTask2.csproj|solutionrelative:windowsformslessontask2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SdiForm.cs",
+              "DocumentMoniker": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\WindowsFormsLessonTask2\\SdiForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsLessonTask2\\SdiForm.cs",
+              "ToolTip": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\WindowsFormsLessonTask2\\SdiForm.cs",
+              "RelativeToolTip": "WindowsFormsLessonTask2\\SdiForm.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T12:39:31.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChildForm.cs",
+              "DocumentMoniker": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\WindowsFormsLessonTask2\\ChildForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsLessonTask2\\ChildForm.cs",
+              "ToolTip": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\WindowsFormsLessonTask2\\ChildForm.cs",
+              "RelativeToolTip": "WindowsFormsLessonTask2\\ChildForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T12:39:14.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChildForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\WindowsFormsLessonTask2\\ChildForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsLessonTask2\\ChildForm.cs",
+              "ToolTip": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\WindowsFormsLessonTask2\\ChildForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "WindowsFormsLessonTask2\\ChildForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T12:39:11.873Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\WindowsFormsLessonTask2\\Form1.cs",
+              "RelativeDocumentMoniker": "WindowsFormsLessonTask2\\Form1.cs",
+              "ToolTip": "E:\\Dev\\CODE\\Lessons\\WindowForms\\090626\\WindowsFormsLessonTask2\\WindowsFormsLessonTask2\\Form1.cs",
+              "RelativeToolTip": "WindowsFormsLessonTask2\\Form1.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA9wCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T11:45:31.744Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
