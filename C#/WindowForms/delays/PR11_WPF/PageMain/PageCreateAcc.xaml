@@ -1,0 +1,37 @@
+<Page x:Class="PR11.PageMain.PageCreateAcc"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Окно регистрации"
+      Height="350" Width="800">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="320">
+        <TextBlock Text="Регистрация" FontSize="22" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Имя:" Width="90" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtName" Style="{StaticResource InputBox}" Width="224"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Логин:" Width="90" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtLogin" Style="{StaticResource InputBox}" Width="224"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Пароль:" Width="90" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtPassword" Style="{StaticResource InputBox}" Width="224"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+            <TextBlock Text="Повтор:" Width="90" VerticalAlignment="Center"/>
+            <PasswordBox x:Name="pbConfirm" Style="{StaticResource PasswordInputBox}" Width="224"
+                         PasswordChanged="pbConfirm_Changed"/>
+        </StackPanel>
+
+        <Button x:Name="btnCreate" Content="Создать аккаунт"
+                Style="{StaticResource PrimaryButton}"
+                IsEnabled="False" Margin="0,0,0,8" Click="Create_Click"/>
+        <Button Content="Назад" Background="#757575" Foreground="White"
+                Style="{StaticResource PrimaryButton}" Click="Back_Click"/>
+
+        <TextBlock x:Name="lblError" Foreground="Red" Margin="0,8,0,0"
+                   HorizontalAlignment="Center" TextWrapping="Wrap"/>
+    </StackPanel>
+</Page>

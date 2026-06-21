@@ -1,0 +1,42 @@
+<Window x:Class="PR9.Task3_TextEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Задание 3: Текстовый редактор (Toolbar + Grid)"
+        Height="480" Width="640"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <!-- ToolBar (панель инструментов) -->
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Content="Copy"  Click="Copy_Click"  ToolTip="Копировать (Ctrl+C)"/>
+                <Button Content="Paste" Click="Paste_Click" ToolTip="Вставить (Ctrl+V)"/>
+                <Button Content="Cut"   Click="Cut_Click"   ToolTip="Вырезать (Ctrl+X)"/>
+                <Separator/>
+                <Button Content="Undo"  Click="Undo_Click"  ToolTip="Отменить (Ctrl+Z)"/>
+                <Button Content="Redo"  Click="Redo_Click"  ToolTip="Повторить (Ctrl+Y)"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <!-- Дублирующиеся кнопки в Grid -->
+        <Grid DockPanel.Dock="Bottom" Height="44" Background="#F0F0F0">
+            <StackPanel Orientation="Horizontal" Margin="8,6">
+                <Button Content="Copy"  Width="60" Margin="0,0,4,0" Click="Copy_Click"/>
+                <Button Content="Paste" Width="60" Margin="0,0,4,0" Click="Paste_Click"/>
+                <Button Content="Cut"   Width="60" Margin="0,0,12,0" Click="Cut_Click"/>
+                <Button Content="Undo"  Width="60" Margin="0,0,4,0" Click="Undo_Click"/>
+                <Button Content="Redo"  Width="60" Click="Redo_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Текстовое поле -->
+        <TextBox x:Name="txtEditor"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Auto"
+                 FontFamily="Consolas" FontSize="13"
+                 Padding="8"
+                 UndoLimit="100"
+                 Text="Введите текст здесь..."/>
+    </DockPanel>
+</Window>

@@ -1,0 +1,24 @@
+<Page x:Class="PR11.PageMain.PageLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Окно авторизации"
+      Height="350" Width="800">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="320">
+        <TextBlock Text="Авторизация" FontSize="22" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,0,0,24"/>
+
+        <TextBlock Text="Логин:" Margin="0,0,0,4"/>
+        <TextBox x:Name="txtLogin" Style="{StaticResource InputBox}" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Пароль:" Margin="0,0,0,4"/>
+        <PasswordBox x:Name="pbPassword" Style="{StaticResource PasswordInputBox}" Margin="0,0,0,16"/>
+
+        <Button Content="Войти" Style="{StaticResource PrimaryButton}"
+                Margin="0,0,0,8" Click="Login_Click"/>
+        <Button Content="Регистрация" Background="#757575" Foreground="White"
+                Style="{StaticResource PrimaryButton}" Click="Register_Click"/>
+
+        <TextBlock x:Name="lblError" Foreground="Red" Margin="0,10,0,0"
+                   HorizontalAlignment="Center" TextWrapping="Wrap"/>
+    </StackPanel>
+</Page>

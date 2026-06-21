@@ -1,0 +1,51 @@
+<Window x:Class="PR10.Task2_GraphicEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Задание 2: Графический редактор (InkCanvas)"
+        Height="520" Width="720"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <!-- Панель инструментов -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"
+                    Background="#F5F5F5" Height="54" VerticalAlignment="Center">
+
+            <!-- Цвет кисти -->
+            <Label Content="Цвет:" VerticalAlignment="Center" Margin="8,0,4,0"/>
+            <ComboBox x:Name="cmbColor" Width="110" VerticalAlignment="Center"
+                      Margin="0,0,16,0" SelectionChanged="cmbColor_Changed">
+                <ComboBoxItem Content="Чёрный"    Tag="Black"   IsSelected="True"/>
+                <ComboBoxItem Content="Красный"   Tag="Red"/>
+                <ComboBoxItem Content="Синий"     Tag="Blue"/>
+                <ComboBoxItem Content="Зелёный"   Tag="Green"/>
+                <ComboBoxItem Content="Оранжевый" Tag="Orange"/>
+                <ComboBoxItem Content="Фиолетовый"Tag="Purple"/>
+            </ComboBox>
+
+            <!-- Размер кисти -->
+            <Label Content="Размер:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+            <Slider x:Name="sliderSize" Width="100" Minimum="1" Maximum="30" Value="4"
+                    VerticalAlignment="Center" Margin="0,0,16,0"
+                    ValueChanged="sliderSize_Changed"/>
+            <Label x:Name="lblSize" Content="4" Width="28" VerticalAlignment="Center" Margin="0,0,16,0"/>
+
+            <!-- Режим работы -->
+            <Label Content="Режим:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+            <RadioButton x:Name="rbInk"    Content="Рисование"    GroupName="mode"
+                         VerticalAlignment="Center" Margin="0,0,8,0" IsChecked="True"
+                         Checked="Mode_Changed"/>
+            <RadioButton x:Name="rbSelect" Content="Выделение"    GroupName="mode"
+                         VerticalAlignment="Center" Margin="0,0,8,0"
+                         Checked="Mode_Changed"/>
+            <RadioButton x:Name="rbErase"  Content="Удаление"     GroupName="mode"
+                         VerticalAlignment="Center" Margin="0,0,16,0"
+                         Checked="Mode_Changed"/>
+
+            <Button Content="Очистить" VerticalAlignment="Center" Margin="0,0,8,0"
+                    Padding="8,4" Click="Clear_Click"/>
+        </StackPanel>
+
+        <!-- InkCanvas -->
+        <InkCanvas x:Name="inkCanvas" Background="White"
+                   EditingMode="Ink"/>
+    </DockPanel>
+</Window>

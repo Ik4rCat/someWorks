@@ -1,0 +1,33 @@
+<Window x:Class="PR9.Task1_BubbleEvents"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Задание 1: Пузырьковые события TextChanged"
+        Height="320" Width="480"
+        WindowStartupLocation="CenterScreen"
+        TextBoxBase.TextChanged="Window_TextChanged">
+
+    <!-- Window — третий уровень (ловит события от всех дочерних) -->
+
+    <Grid TextBoxBase.TextChanged="Grid_TextChanged" Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- RadioButton-индикаторы уровней -->
+        <RadioButton x:Name="rbTextBox" Grid.Row="0" Content="Событие TextBox.TextChanged в TextBox"
+                     IsEnabled="False" Margin="0,4"/>
+        <RadioButton x:Name="rbGrid"    Grid.Row="1" Content="Событие TextBox.TextChanged в Grid"
+                     IsEnabled="False" Margin="0,4"/>
+        <RadioButton x:Name="rbWindow" Grid.Row="2" Content="Событие TextBox.TextChanged в Window"
+                     IsEnabled="False" Margin="0,4"/>
+
+        <!-- TextBox регистрирует событие на себе -->
+        <TextBox Grid.Row="3" Margin="0,16,0,0"
+                 TextChanged="TextBox_TextChanged"
+                 Height="36" VerticalContentAlignment="Center"
+                 Padding="6,0"/>
+    </Grid>
+</Window>

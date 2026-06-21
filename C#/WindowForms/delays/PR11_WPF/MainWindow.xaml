@@ -1,0 +1,30 @@
+<Window x:Class="PR11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Система авторизации" Height="350" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Шапка -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal"
+                    Background="#3F51B5" VerticalAlignment="Stretch">
+            <Border Width="80" Height="80" Margin="16,10" Background="White" CornerRadius="40">
+                <TextBlock Text="PR11" FontSize="14" FontWeight="Bold"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Foreground="#3F51B5"/>
+            </Border>
+            <TextBlock x:Name="tbTitle"
+                       Text="Авторизация"
+                       FontSize="28" FontWeight="Bold" Foreground="White"
+                       VerticalAlignment="Center" Margin="16,0"/>
+        </StackPanel>
+
+        <!-- Фрейм с навигацией -->
+        <Frame x:Name="FrmMain" Grid.Row="1"
+               NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

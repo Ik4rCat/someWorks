@@ -1,0 +1,10 @@
+<Window x:Class="PR10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ПР10 — Выберите задание" Height="180" Width="320"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <StackPanel Margin="20" VerticalAlignment="Center">
+        <Button Content="Задание 1: Меню + Toolbar + StatusBar" Height="40" Margin="0,0,0,10" Click="OpenTask1"/>
+        <Button Content="Задание 2: Графический редактор"       Height="40" Click="OpenTask2"/>
+    </StackPanel>
+</Window>

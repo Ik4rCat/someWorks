@@ -1,0 +1,11 @@
+<Window x:Class="PR9.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ПР9 — Выберите задание" Height="200" Width="320"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <StackPanel Margin="20" VerticalAlignment="Center">
+        <Button Content="Задание 1: Пузырьковые события" Height="40" Margin="0,0,0,8" Click="OpenTask1"/>
+        <Button Content="Задание 2: Счётчик в фоне"      Height="40" Margin="0,0,0,8" Click="OpenTask2"/>
+        <Button Content="Задание 3: Текстовый редактор"  Height="40" Click="OpenTask3"/>
+    </StackPanel>
+</Window>

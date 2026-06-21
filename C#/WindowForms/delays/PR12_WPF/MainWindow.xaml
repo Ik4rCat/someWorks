@@ -1,0 +1,25 @@
+<Window x:Class="PR12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PR12"
+        Title="ПР12: Кастомный элемент — Конвертер систем счисления"
+        Height="340" Width="480"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+    <StackPanel Margin="24">
+        <TextBlock Text="Конвертер систем счисления"
+                   FontSize="18" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Кастомный элемент NumberInputRow для каждой системы -->
+        <local:NumberInputRow x:Name="rowHex" Margin="0,0,0,10" ValueChanged="Row_ValueChanged"/>
+        <local:NumberInputRow x:Name="rowDec" Margin="0,0,0,10" ValueChanged="Row_ValueChanged"/>
+        <local:NumberInputRow x:Name="rowOct" Margin="0,0,0,10" ValueChanged="Row_ValueChanged"/>
+        <local:NumberInputRow x:Name="rowBin"                   ValueChanged="Row_ValueChanged"/>
+
+        <TextBlock Text="Введите число в любое поле — остальные обновятся автоматически."
+                   Foreground="Gray" FontSize="11"
+                   HorizontalAlignment="Center" Margin="0,16,0,0"
+                   TextWrapping="Wrap" TextAlignment="Center"/>
+    </StackPanel>
+</Window>
